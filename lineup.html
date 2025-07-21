@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Lineup - ArtFunFest 2025</title>
+    <meta name="description" content="Discover the incredible artists performing at ArtFunFest 2025. World-class performers across art, music, and culture.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-palette"></i>
+                    <span class="logo-text">ArtFunFest</span>
+                    <span class="logo-year">2025</span>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">
+                            <i class="fas fa-info-circle"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="lineup.html" class="nav-link active">
+                            <i class="fas fa-users"></i>
+                            <span>Lineup</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="tickets.html" class="nav-link">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Tickets</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="venue.html" class="nav-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Venue</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">
+                            <i class="fas fa-images"></i>
+                            <span>Gallery</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn-tickets" onclick="window.location.href='tickets.html'">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Get Tickets</span>
+                    </button>
+                    <div class="nav-toggle" id="nav-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-background">
+            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Artist Lineup">
+            <div class="page-header-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="page-header-content">
+                <nav class="breadcrumb">
+                    <a href="index.html">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Lineup</span>
+                </nav>
+                <h1>
+                    <i class="fas fa-users"></i>
+                    <span>Artist Lineup</span>
+                </h1>
+                <p>Meet the incredible artists performing at ArtFunFest 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="lineup-filters">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">
+                    <i class="fas fa-th"></i>
+                    <span>All Artists</span>
+                </button>
+                <button class="filter-tab" data-filter="visual-arts">
+                    <i class="fas fa-palette"></i>
+                    <span>Visual Arts</span>
+                </button>
+                <button class="filter-tab" data-filter="music">
+                    <i class="fas fa-music"></i>
+                    <span>Music</span>
+                </button>
+                <button class="filter-tab" data-filter="performance">
+                    <i class="fas fa-theater-masks"></i>
+                    <span>Performance</span>
+                </button>
+                <button class="filter-tab" data-filter="digital">
+                    <i class="fas fa-laptop"></i>
+                    <span>Digital Arts</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Artists -->
+    <section class="featured-artists">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Headliners</span>
+                </span>
+                <h2>Featured Artists</h2>
+                <p>Our headline performers bringing world-class talent to ArtFunFest</p>
+            </div>
+            
+            <div class="featured-grid">
+                <div class="featured-artist" data-category="visual-arts">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Marina Voss">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                            </div>
+                            <div class="artist-schedule">
+                                <i class="fas fa-calendar"></i>
+                                <span>July 16, 2:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Marina Voss</h3>
+                        <p>Contemporary Sculptor</p>
+                        <div class="artist-tags">
+                            <span class="tag">Sculpture</span>
+                            <span class="tag">Installation</span>
+                        </div>
+                        <div class="artist-description">
+                            <p>Internationally acclaimed sculptor known for her large-scale installations that explore the relationship between nature and urban environments.</p>
+                        </div>
+                        <div class="artist-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Main Gallery</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-artist" data-category="music">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Echo Collective">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-spotify"></i></a>
+                                <a href="#"><i class="fas fa-play"></i></a>
+                            </div>
+                            <div class="artist-schedule">
+                                <i class="fas fa-calendar"></i>
+                                <span>July 17, 8:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Echo Collective</h3>
+                        <p>Electronic Music Ensemble</p>
+                        <div class="artist-tags">
+                            <span class="tag">Electronic</span>
+                            <span class="tag">Ambient</span>
+                        </div>
+                        <div class="artist-description">
+                            <p>Pioneering electronic music collective creating immersive soundscapes that blend classical orchestration with cutting-edge digital production.</p>
+                        </div>
+                        <div class="artist-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Main Stage</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-artist" data-category="digital">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=800" alt="David Chen">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                                <a href="#"><i class="fab fa-dribbble"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                            </div>
+                            <div class="artist-schedule">
+                                <i class="fas fa-calendar"></i>
+                                <span>July 18, 3:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>David Chen</h3>
+                        <p>Digital Artist & VR Pioneer</p>
+                        <div class="artist-tags">
+                            <span class="tag">Digital</span>
+                            <span class="tag">VR/AR</span>
+                        </div>
+                        <div class="artist-description">
+                            <p>Leading digital artist pushing the boundaries of virtual and augmented reality to create immersive artistic experiences.</p>
+                        </div>
+                        <div class="artist-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Digital Pavilion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Artists -->
+    <section class="all-artists">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-users"></i>
+                    <span>Complete Lineup</span>
+                </span>
+                <h2>All Artists</h2>
+                <p>Discover every talented artist performing at ArtFunFest 2025</p>
+            </div>
+            
+            <div class="artists-grid" id="artists-grid">
+                <!-- Visual Arts -->
+                <div class="artist-card" data-category="visual-arts">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1181490/pexels-photo-1181490.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Luna Rodriguez">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Luna Rodriguez</h3>
+                        <p>Performance Artist</p>
+                        <div class="artist-tags">
+                            <span class="tag">Performance</span>
+                            <span class="tag">Mixed Media</span>
+                        </div>
+                        <div class="artist-schedule">
+                            <i class="fas fa-calendar"></i>
+                            <span>July 16, 4:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="artist-card" data-category="music">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Jazz Fusion Quartet">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-spotify"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Jazz Fusion Quartet</h3>
+                        <p>Contemporary Jazz</p>
+                        <div class="artist-tags">
+                            <span class="tag">Jazz</span>
+                            <span class="tag">Fusion</span>
+                        </div>
+                        <div class="artist-schedule">
+                            <i class="fas fa-calendar"></i>
+                            <span>July 17, 6:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="artist-card" data-category="visual-arts">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Alex Thompson">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Alex Thompson</h3>
+                        <p>Street Artist</p>
+                        <div class="artist-tags">
+                            <span class="tag">Street Art</span>
+                            <span class="tag">Murals</span>
+                        </div>
+                        <div class="artist-schedule">
+                            <i class="fas fa-calendar"></i>
+                            <span>July 16, 10:00 AM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="artist-card" data-category="performance">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Modern Dance Collective">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Modern Dance Collective</h3>
+                        <p>Contemporary Dance</p>
+                        <div class="artist-tags">
+                            <span class="tag">Dance</span>
+                            <span class="tag">Contemporary</span>
+                        </div>
+                        <div class="artist-schedule">
+                            <i class="fas fa-calendar"></i>
+                            <span>July 17, 3:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="artist-card" data-category="digital">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Pixel Dreams">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                                <a href="#"><i class="fab fa-dribbble"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Pixel Dreams</h3>
+                        <p>Digital Installation Artist</p>
+                        <div class="artist-tags">
+                            <span class="tag">Digital</span>
+                            <span class="tag">Interactive</span>
+                        </div>
+                        <div class="artist-schedule">
+                            <i class="fas fa-calendar"></i>
+                            <span>July 18, 1:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="artist-card" data-category="music">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1181490/pexels-photo-1181490.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Acoustic Souls">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-spotify"></i></a>
+                                <a href="#"><i class="fab fa-apple"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Acoustic Souls</h3>
+                        <p>Folk & Indie</p>
+                        <div class="artist-tags">
+                            <span class="tag">Folk</span>
+                            <span class="tag">Indie</span>
+                        </div>
+                        <div class="artist-schedule">
+                            <i class="fas fa-calendar"></i>
+                            <span>July 16, 7:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="artist-card" data-category="visual-arts">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Sarah Kim">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Sarah Kim</h3>
+                        <p>Ceramic Artist</p>
+                        <div class="artist-tags">
+                            <span class="tag">Ceramics</span>
+                            <span class="tag">Sculpture</span>
+                        </div>
+                        <div class="artist-schedule">
+                            <i class="fas fa-calendar"></i>
+                            <span>July 17, 11:00 AM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="artist-card" data-category="performance">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Theater Collective">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Theater Collective</h3>
+                        <p>Experimental Theater</p>
+                        <div class="artist-tags">
+                            <span class="tag">Theater</span>
+                            <span class="tag">Experimental</span>
+                        </div>
+                        <div class="artist-schedule">
+                            <i class="fas fa-calendar"></i>
+                            <span>July 18, 5:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="artist-card" data-category="music">
+                    <div class="artist-image">
+                        <img src="https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Electronic Vibes">
+                        <div class="artist-overlay">
+                            <div class="artist-social">
+                                <a href="#"><i class="fab fa-soundcloud"></i></a>
+                                <a href="#"><i class="fab fa-spotify"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Electronic Vibes</h3>
+                        <p>Electronic Producer</p>
+                        <div class="artist-tags">
+                            <span class="tag">Electronic</span>
+                            <span class="tag">Techno</span>
+                        </div>
+                        <div class="artist-schedule">
+                            <i class="fas fa-calendar"></i>
+                            <span>July 18, 9:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Schedule</span>
+                </span>
+                <h2>Festival Schedule</h2>
+                <p>Plan your ArtFunFest experience with our detailed schedule</p>
+            </div>
+            
+            <div class="schedule-tabs">
+                <button class="schedule-tab active" data-day="day1">
+                    <i class="fas fa-calendar-day"></i>
+                    <span>Day 1</span>
+                    <small>July 16</small>
+                </button>
+                <button class="schedule-tab" data-day="day2">
+                    <i class="fas fa-calendar-day"></i>
+                    <span>Day 2</span>
+                    <small>July 17</small>
+                </button>
+                <button class="schedule-tab" data-day="day3">
+                    <i class="fas fa-calendar-day"></i>
+                    <span>Day 3</span>
+                    <small>July 18</small>
+                </button>
+            </div>
+            
+            <div class="schedule-content">
+                <div class="schedule-day active" id="day1">
+                    <div class="schedule-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Festival Opening & Welcome</h4>
+                                <p>Main Stage</p>
+                                <span class="event-type">Opening Ceremony</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Alex Thompson - Live Mural Creation</h4>
+                                <p>Art Plaza</p>
+                                <span class="event-type">Visual Arts</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">2:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Marina Voss - Sculpture Exhibition</h4>
+                                <p>Main Gallery</p>
+                                <span class="event-type">Featured Artist</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">4:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Luna Rodriguez - Performance Art</h4>
+                                <p>Performance Stage</p>
+                                <span class="event-type">Performance</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">7:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Acoustic Souls - Live Concert</h4>
+                                <p>Main Stage</p>
+                                <span class="event-type">Music</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-day" id="day2">
+                    <div class="schedule-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Morning Workshops Begin</h4>
+                                <p>Workshop Pavilion</p>
+                                <span class="event-type">Workshop</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Sarah Kim - Ceramics Demonstration</h4>
+                                <p>Craft Studio</p>
+                                <span class="event-type">Visual Arts</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">3:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Modern Dance Collective</h4>
+                                <p>Performance Stage</p>
+                                <span class="event-type">Performance</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">6:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Jazz Fusion Quartet</h4>
+                                <p>Jazz Lounge</p>
+                                <span class="event-type">Music</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">8:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Echo Collective - Main Performance</h4>
+                                <p>Main Stage</p>
+                                <span class="event-type">Featured Artist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-day" id="day3">
+                    <div class="schedule-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Final Day Opening</h4>
+                                <p>Main Stage</p>
+                                <span class="event-type">Opening</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">1:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Pixel Dreams - Interactive Installation</h4>
+                                <p>Digital Pavilion</p>
+                                <span class="event-type">Digital Arts</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">3:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>David Chen - VR Experience</h4>
+                                <p>Digital Pavilion</p>
+                                <span class="event-type">Featured Artist</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">5:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Theater Collective - Final Performance</h4>
+                                <p>Performance Stage</p>
+                                <span class="event-type">Performance</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">9:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Electronic Vibes - Closing Party</h4>
+                                <p>Main Stage</p>
+                                <span class="event-type">Closing Event</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-info">
+                    <h2>
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Don't Miss These Amazing Artists</span>
+                    </h2>
+                    <p>Secure your tickets now and experience world-class performances at ArtFunFest 2025</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="tickets.html" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Buy Tickets</span>
+                    </a>
+                    <a href="venue.html" class="btn btn-secondary">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>View Venue</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-palette"></i>
+                        <span>ArtFunFest 2025</span>
+                    </div>
+                    <p>The ultimate celebration of art, music, and culture. Join us for an unforgettable experience in the heart of New York City.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>
+                        <i class="fas fa-link"></i>
+                        <span>Quick Links</span>
+                    </h4>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Festival</a></li>
+                        <li><a href="lineup.html"><i class="fas fa-chevron-right"></i> Artist Lineup</a></li>
+                        <li><a href="tickets.html"><i class="fas fa-chevron-right"></i> Buy Tickets</a></li>
+                        <li><a href="venue.html"><i class="fas fa-chevron-right"></i> Venue Info</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Photo Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>
+                        <i class="fas fa-headset"></i>
+                        <span>Support</span>
+                    </h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Refund Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>
+                        <i class="fas fa-info-circle"></i>
+                        <span>Event Info</span>
+                    </h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <span class="label">Date</span>
+                                <span class="value">July 16-18, 2025</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Location</span>
+                                <span class="value">Central Park, NYC</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <span class="value">info@artfunfest.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <span class="value">+1 (555) 123-4567</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 ArtFunFest. All rights reserved.</p>
+                    <div class="footer-badges">
+                        <span class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure Payments</span>
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-award"></i>
+                            <span>Award Winning</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

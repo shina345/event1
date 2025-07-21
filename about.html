@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About ArtFunFest Afro </title>
+    <meta name="description" content="Learn about ArtFunFest Afro Fusion 2025, a vibrant celebration of African art, music, and culture at Olabisi Onabanjo University, Ago Iwoye.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="asset/logo.png">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #A32638; /* Deep red for Afrocentric vibe */
+            --secondary-color: #FFFFFF;
+            --accent-color: #E67E22; /* Ochre for African heritage */
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #A32638, #E67E22);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--secondary-color);
+            font-size: clamp(16px, 2.5vw, 18px);
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            background: rgba(163, 38, 56, 0.1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-tickets {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: clamp(0.875rem, 2vw, 1rem);
+        }
+
+        .btn-tickets:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* Page Header */
+        .page-header {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+            background: url('https://images.pexels.com/photos/1612464/pexels-photo-1612464.jpeg?auto=compress&cs=tinysrgb&w=1920') no-repeat center/cover;
+        }
+
+        .page-header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .page-header-content {
+            text-align: center;
+            color: var(--secondary-color);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.8;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .page-header p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            touch-action: manipulation;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(163, 38, 56, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-header p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Content */
+        .about-content {
+            background: #FFF8E7; /* Light ochre background for Afrocentric feel */
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 3rem;
+        }
+
+        .content-main {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .content-section {
+            animation: slideIn 0.5s ease-out;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1.5rem;
+        }
+
+        .content-section h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .content-section p, .content-section li {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            position relative;
+            margin: 2rem 0;
+        }
+
+        .highlight-box i {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            opacity: 0.2;
+        }
+
+        .highlight-box blockquote {
+            font-style: italic;
+            color: var(--text-primary);
+            margin: 1rem 0;
+        }
+
+        .highlight-box cite {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .mission-points, .community-points, .event-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mission-point, .community-point, .event-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .mission-point i, .community-point i, .event-highlight i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .mission-point h4, .community-point h4, .event-highlight h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-card {
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .awards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .award-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .award-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .award-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .award-item p {
+            color: var(--text-secondary);
+        }
+
+        /* Team & Partnerships Section */
+        .team-partnerships-section {
+            padding: 4rem 0;
+            background: #FFF8E7;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: var(--secondary-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .member-image {
+            position: relative;
+            overflow: hidden;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.05);
+        }
+
+        .member-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-member:hover .member-overlay {
+            opacity: 1;
+        }
+
+        .member-social {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .member-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .member-social a:hover {
+            transform: translateY(-3px);
+            background: var(--accent-color);
+        }
+
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .member-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-info p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-bio {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        /* Sponsors Carousel */
+        .sponsors-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sponsors-grid {
+            display: flex;
+            gap: 2rem;
+            transition: transform 0.5s ease;
+        }
+
+        .sponsor-item {
+            flex: 0 0 auto;
+            width: 150px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .sponsor-item img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .sponsor-item:hover {
+            transform: scale(1.1);
+        }
+
+        .sponsor-item:hover img {
+            filter: grayscale(0);
+        }
+
+        .carousel-controls {
+            display: none;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .carousel-controls button {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .carousel-controls button:hover {
+            background: var(--accent-color);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            padding: 3rem 0;
+        }
+
+        .cta-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .cta-info h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cta-info p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #5B0D1A;
+            color: var(--secondary-color);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 800;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .footer-section p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            width: 20px;
+            color: var(--accent-color);
+        }
+
+        .contact-item .label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .contact-item .value {
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Media Queries for Super-Responsiveness */
+        @media (min-width: 1921px) {
+            .container {
+                max-width: 1600px;
+            }
+            .content-grid {
+                grid-template-columns: 3fr 1fr;
+            }
+            .team-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .sponsors-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1920px) {
+            .content-grid {
+                grid-template-columns: 3fr 1fr;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .nav-menu {
+                gap: 0.5rem;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .sponsors-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .cta-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cta-actions {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--secondary-color);
+                padding: 1rem;
+                box-shadow: var(--shadow-md);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .page-header {
+                min-height: 50vh;
+                margin-top: 60px;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .page-header p {
+                font-size: 1rem;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .sponsors-grid {
+                flex-direction: row;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 1rem;
+            }
+            .sponsor-item {
+                scroll-snap-align: center;
+                width: 120px;
+            }
+            .carousel-controls {
+                display: flex;
+            }
+            .cta-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+            .btn-tickets {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+            .page-header h1 {
+                font-size: 1.75rem;
+            }
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+            .sponsor-item {
+                width: 100px;
+            }
+            .member-image img {
+                height: 200px;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 767px) {
+            .sponsors-grid {
+                flex-direction: row;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+            }
+            .sponsor-item {
+                width: 120px;
+                scroll-snap-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav" role="navigation">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    <img src="asset/logo.png" alt="ArtFunFest Afro Fusion Logo" class="logo-img">
+                   
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link active"><i class="fas fa-info-circle"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="tickets.html" class="nav-link"><i class="fas fa-ticket-alt"></i> Tickets</a>
+                    </li>
+                    <li><a href="art-gallery.html" class="nav-link"><i class="fas fa-palette"></i> Art Gallery</a></li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn-tickets" aria-label="Get Tickets" onclick="window.location.href='tickets.html'">
+                        <i class="fas fa-ticket-alt"></i> Get Tickets
+                    </button>
+                    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" role="region" aria-label="About Header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <div class="page-header-content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>About</span>
+                </nav>
+                
+                <h1><i class="fas fa-info-circle"></i> About ArtFunFest Afro Fusion</h1>
+                <p>Celebrating African Art & Culture in Ago Iwoye</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content" role="region" aria-label="About Content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-main">
+                    <div class="content-section">
+                        <h2><i class="fas fa-star"></i> Our Story</h2>
+                        <p>Art Funfest Afro Fusion began as OOU Ibogun Art Funfest, a bold initiative at Olabisi Onabanjo University (Ibogun Campus). Founded by Daodu Samuel, then Social Director of the Fine and Applied Arts Department, with support from OOU SUG VP4 Sen. Mhidex, the festival addressed a key challenge: talented fine artists lacked platforms to showcase their work, often traveling to cities like Ago-Iwoye for exposure.</p>
+                        <p>Art Funfest changed that by uniting audiences, artists, and creatives from various campuses to celebrate art in Ibogun. Despite challenges like transportation, poor roads, limited sponsorship, and distance, it grew into a vibrant hub for creativity.</p>
+                        <p>Today, OOU Ibogun Art Funfest has evolved into Art Funfest Afro Fusion – a cultural festival bringing African art and culture to a global audience, starting from Ogun State.</p>
+                        <div class="highlight-box">
+                            <i class="fas fa-quote-left"></i>
+                            <blockquote>
+                                "Art Funfest Afro Fusion is a movement that empowers artists and celebrates the raw beauty of African creativity."
+                            </blockquote>
+                            <cite>— Daodu Samuel, Founder</cite>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2><i class="fas fa-eye"></i> Vision</h2>
+                        <p>To showcase the beauty of African art and culture to the world while empowering creatives and building a vibrant art-loving community.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2><i class="fas fa-bullseye"></i> Mission</h2>
+                        <div class="mission-points">
+                            <div class="mission-point">
+                                <i class="fas fa-palette"></i>
+                                <div>
+                                    <h4>Showcase Talent</h4>
+                                    <p>Provide a platform for artists and creatives to reach wider audiences.</p>
+                                </div>
+                            </div>
+                            <div class="mission-point">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Create Experiences</h4>
+                                    <p>Blend art, music, fashion, and food for unforgettable cultural moments.</p>
+                                </div>
+                            </div>
+                            <div class="mission-point">
+                                <i class="fas fa-handshake"></i>
+                                <div>
+                                    <h4>Connect Partners</h4>
+                                    <p>Link brands, artists, and audiences in meaningful partnerships.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2><i class="fas fa-users"></i> Our Community</h2>
+                        <div class="community-points">
+                            <div class="community-point">
+                                <i class="fas fa-paint-brush"></i>
+                                <div>
+                                    <h4>Artists & Creatives</h4>
+                                    <p>Fine artists, performing artists, and creatives seeking exposure.</p>
+                                </div>
+                            </div>
+                            <div class="community-point">
+                                <i class="fas fa-heart"></i>
+                                <div>
+                                    <h4>Art Lovers</h4>
+                                    <p>Cultural enthusiasts eager to explore African creativity.</p>
+                                </div>
+                            </div>
+                            <div class="community-point">
+                                <i class="fas fa-briefcase"></i>
+                                <div>
+                                    <h4>Brands & Partners</h4>
+                                    <p>Engaging with a youthful, trend-conscious audience.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2><i class="fas fa-calendar-alt"></i> Event Highlights</h2>
+                        <div class="event-highlights">
+                            <div class="event-highlight">
+                                <i class="fas fa-palette"></i>
+                                <div>
+                                    <h4>Live Art Exhibitions & Installations</h4>
+                                    <p>Showcasing fine art, photography, and crafts.</p>
+                                </div>
+                            </div>
+                            <div class="event-highlight">
+                                <i class="fas fa-music"></i>
+                                <div>
+                                    <h4>Music Performances</h4>
+                                    <p>By emerging and established Afrocentric artists.</p>
+                                </div>
+                            </div>
+                            <div class="event-highlight">
+                                <i class="fas fa-tshirt"></i>
+                                <div>
+                                    <h4>Fashion Shows</h4>
+                                    <p>Celebrating African fabrics like Adire and Batik.</p>
+                                </div>
+                            </div>
+                            <div class="event-highlight">
+                                <i class="fas fa-utensils"></i>
+                                <div>
+                                    <h4>Food & Lifestyle Markets</h4>
+                                    <p>Featuring local delicacies and brands.</p>
+                                </div>
+                            </div>
+                            <div class="event-highlight">
+                                <i class="fas fa-trophy"></i>
+                                <div>
+                                    <h4>Challenges & Competitions</h4>
+                                    <p>Empowering creatives and engaging audiences.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2><i class="fas fa-paint-roller"></i> Brand Tone & Personality</h2>
+                        <div class="event-highlights">
+                            <div class="event-highlight">
+                                <i class="fas fa-lightbulb"></i>
+                                <div>
+                                    <h4>Creative & Youthful</h4>
+                                    <p>Vibrant energy for young artists and audiences.</p>
+                                </div>
+                            </div>
+                            <div class="event-highlight">
+                                <i class="fas fa-globe-africa"></i>
+                                <div>
+                                    <h4>Afrocentric & Cultural</h4>
+                                    <p>Proud of African roots and traditions.</p>
+                                </div>
+                            </div>
+                            <div class="event-highlight">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Inclusive & Community-Driven</h4>
+                                    <p>Creating space for everyone to connect.</p>
+                                </div>
+                            </div>
+                            <div class="event-highlight">
+                                <i class="fas fa-rocket"></i>
+                                <div>
+                                    <h4>Innovative & Aspirational</h4>
+                                    <p>Setting new standards in cultural events.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-sidebar">
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-chart-bar"></i> Festival Stats</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <i class="fas fa-users"></i>
+                                <span class="stat-number">5,000+</span>
+                                <span class="stat-label">Expected Attendees</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-palette"></i>
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Featured Artists</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-image"></i>
+                                <span class="stat-number">100+</span>
+                                <span class="stat-label">Artworks</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-music"></i>
+                                <span class="stat-number">20+</span>
+                                <span class="stat-label">Performances</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-award"></i> Awards & Recognition</h3>
+                        <div class="awards-list">
+                            <div class="award-item">
+                                <i class="fas fa-medal"></i>
+                                <div>
+                                    <h4>Best Campus Event 2023</h4>
+                                    <p>OOU Cultural Awards</p>
+                                </div>
+                            </div>
+                            <div class="award-item">
+                                <i class="fas fa-trophy"></i>
+                                <div>
+                                    <h4>Excellence in Arts</h4>
+                                    <p>Ogun State Youth Awards</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team & Partnerships Section -->
+    <section class="team-partnerships-section" role="region" aria-label="Team & Partnerships">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-handshake"></i> Team & Partnerships</span>
+                <h2>Our Team & Partners</h2>
+                <p>The passionate creatives and brands behind ArtFunFest Afro Fusion</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Daodu Samuel, Founder" loading="lazy">
+                        <div class="member-overlay">
+                            <div class="member-social">
+                                <a href="https://linkedin.com/in/daodusamuel" aria-label="Daodu Samuel's LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://instagram.com/daodusamuel" aria-label="Daodu Samuel's Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="mailto:daodu@artfunfestng.com" aria-label="Email Daodu Samuel"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Daodu Samuel</h3>
+                        <p>Founder</p>
+                        <span class="member-bio">Leading ArtFunFest Afro Fusion with a vision to empower African creatives</span>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Sen. Mhidex, Co-Founder" loading="lazy">
+                        <div class="member-overlay">
+                            <div class="member-social">
+                                <a href="https://linkedin.com/in/senmhidex" aria-label="Sen. Mhidex's LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://instagram.com/senmhidex" aria-label="Sen. Mhidex's Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="mailto:mhidex@artfunfestng.com" aria-label="Email Sen. Mhidex"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Sen. Mhidex</h3>
+                        <p>Co-Founder</p>
+                        <span class="member-bio">Supporting the festival’s growth with strategic leadership</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sponsors-carousel">
+                <div class="section-header">
+                    <span class="section-badge"><i class="fas fa-handshake"></i> Partners</span>
+                    <h2>Our Valued Partners</h2>
+                </div>
+                <div class="sponsors-grid">
+                    <a href="https://mcyanmifegadget.com" class="sponsor-item" aria-label="Mcyanmife Gadget">
+                        <img src="asset/spon.jpg" alt="Mcyanmife Gadget Logo" loading="lazy" srcset="">
+                    </a>
+                    <a href="#" class="sponsor-item" aria-label="Mr Roland">
+                        <img src="asset/spon2.jpg" alt="Mr Roland Logo" loading="lazy" srcset="">
+                    </a>
+                    <a href="https://goldmyne.tv" class="sponsor-item" aria-label="Goldmyne">
+                        <img src="asset/spon3.jpg" alt="Goldmyne Logo" loading="lazy" srcset="">
+                    </a>
+                    <a href="https://goldmyne.tv" class="sponsor-item" aria-label="Goldmyne">
+                        <img src="asset/spon4.jpg" alt="Goldmyne Logo" loading="lazy" srcset="">
+                    </a>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-prev" aria-label="Previous Sponsor"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-next" aria-label="Next Sponsor"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer" id="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="asset/logo.png" alt="ArtFunFest Afro Fusion Logo" class="logo-img" loading="lazy">
+                        <span>ArtFunFest Afro Fusion</span>
+                    </div>
+                    <p>The ultimate celebration of African art, music, and culture at Olabisi Onabanjo University, Ago Iwoye.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/artfunfest/?igsh=MWltcjNucTE0dGR1bA%3D%3D&utm_source=qr" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-link"></i> Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Festival</a></li>
+                        <li><a href="tickets.html"><i class="fas fa-chevron-right"></i> Buy Tickets</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Photo Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-headset"></i> Support</h4>
+                    <ul>
+                        <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="refund.html"><i class="fas fa-chevron-right"></i> Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-info-circle"></i> Event Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Location</span>
+                                <span class="value">Olabisi Onabanjo University, Ago Iwoye</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <span class="value">Artfunfestng@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <span class="value">+234-8057772961</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>© 2025 ArtFunFest Afro Fusion. All rights reserved.</p>
+                    <div class="footer-badges">
+                        <span class="badge"><i class="fas fa-shield-alt"></i> Secure Payments</span>
+                        <span class="badge"><i class="fas fa-award"></i> Award Winning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

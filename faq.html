@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Find answers to frequently asked questions about ArtFunFest Afro Fusion 2025.">
+    <meta name="keywords" content="ArtFunFest, Afro Fusion, FAQ, festival questions">
+    <title>FAQ - ArtFunFest Afro </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="asset/logo.png">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="ArtFunFest Afro Fusion Home">
+                <img src="asset/logo.png" alt="ArtFunFest Afro Fusion Logo" class="logo-image" loading="lazy">
+                <span>ArtFunFest</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu" aria-label="Main navigation">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="art-gallery.html" class="nav-link"><i class="fas fa-palette"></i> Art Gallery</a></li>
+                <li><a href="gallery.html" class="nav-link"><i class="fas fa-camera"></i> Gallery</a></li>
+               
+                <li><a href="faq.html" class="nav-link active" aria-current="page"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-tickets" aria-label="Get Tickets" onclick="openTicketModal('festival')">
+                    <i class="fas fa-ticket-alt"></i> Get Tickets
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header" role="region" aria-label="FAQ Header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <div class="page-header-content">
+                <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>FAQ</span>
+                </nav>
+                <h1><i class="fas fa-question-circle"></i> Frequently Asked Questions</h1>
+                <p>Find answers to common questions about ArtFunFest Afro Fusion 2025.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" role="region" aria-label="FAQ">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-question-circle"></i> Help Center</span>
+                <h2>Got Questions? We Have Answers</h2>
+                <p>Explore our FAQs or contact us for more information.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        What is ArtFunFest Afro Fusion?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>ArtFunFest Afro Fusion is a cultural festival celebrating African art, music, and cuisine, held on August 10, 2025, at Olabisi Onabanjo University, Ago Iwoye.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        How do I purchase tickets?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Tickets can be purchased online via our website. Click "Get Tickets" in the navigation or visit the Tickets section on the homepage.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Can I sell my artwork at the festival?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Register as an artist on our Art Gallery page and upload your artwork for review and sale.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Is the venue accessible?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, Olabisi Onabanjo University offers wheelchair-accessible entrances, restrooms, and parking. Contact us for specific accessibility needs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-action">
+                <a href="contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Us for More Info</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="index.html" class="footer-logo">
+                        <img src="asset/logo.png" alt="ArtFunFest Afro Fusion Logo" class="logo-image" loading="lazy">
+                        <span>ArtFunFest Afro Fusion</span>
+                    </a>
+                    <p>The ultimate celebration of African art, music, and culture at Olabisi Onabanjo University, Ago Iwoye.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/artfunfest/?igsh=MWltcjNucTE0dGR1bA%3D%3D&utm_source=qr" class="instagram" aria-label="Follow on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="twitter" aria-label="Follow on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="facebook" aria-label="Follow on Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-link"></i> Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-angle-right"></i> About Festival</a></li>
+                        <li><a href="lineup.html"><i class="fas fa-angle-right"></i> Artist Lineup</a></li>
+                        <li><a href="art-gallery.html"><i class="fas fa-angle-right"></i> Art Gallery</a></li>
+                        <li><a href="venue.html"><i class="fas fa-angle-right"></i> Venue Info</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-angle-right"></i> Photo Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-headset"></i> Support</h4>
+                    <ul>
+                        <li><a href="faq.html"><i class="fas fa-angle-right"></i> FAQ</a></li>
+                        <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                        <li><a href="terms.html"><i class="fas fa-angle-right"></i> Terms & Conditions</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+                        <li><a href="refund.html"><i class="fas fa-angle-right"></i> Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-info-circle"></i> Event Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <span class="label">Date</span>
+                                <span class="value">August 10, 2025</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Location</span>
+                                <span class="value">Olabisi Onabanjo University, Ago Iwoye</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <span class="value">Artfunfestng@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <span class="value">+234-8057772961</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>© 2025 ArtFunFest Afro Fusion. All rights reserved.</p>
+                    <div class="footer-badges">
+                        <div class="badge"><i class="fas fa-lock"></i> Secure Payments</div>
+                        <div class="badge"><i class="fas fa-award"></i> Award Winning</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>

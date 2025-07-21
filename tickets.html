@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets</title>
+    <meta name="description" content="Buy tickets for ArtFunFest 2025. Choose from Single Day, 3-Day Festival, or VIP Experience packages.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+    <style>
+        :root {
+            --primary-color: #A32638;
+            --secondary-color: #F8F9FA;
+            --text-color: #333;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .tickets-main {
+            padding: 4rem 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        #timer {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            color: var(--primary-color);
+        }
+        .tickets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .ticket-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+        .ticket-card:nth-child(1) { animation-delay: 0.1s; }
+        .ticket-card:nth-child(2) { animation-delay: 0.2s; }
+        .ticket-card:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .ticket-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .ticket-card.featured {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+        .ticket-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .ticket-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .ticket-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+        }
+        .ticket-price .currency {
+            font-size: 1.2rem;
+        }
+        .ticket-price .period {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #666;
+        }
+        .ticket-availability {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: #28a745;
+            font-size: 0.9rem;
+        }
+        .ticket-availability.limited {
+            color: #dc3545;
+        }
+        .ticket-badge {
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .ticket-features {
+            margin-bottom: 1.5rem;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+        }
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            position: relative;
+            background: white;
+            max-width: 600px;
+            margin: 5% auto;
+            border-radius: 8px;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .modal-header {
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-body {
+            padding: 2rem;
+        }
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .form-group input {
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .qty-btn {
+            background: #f8f9fa;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+        .quantity-control input {
+            border: none;
+            text-align: center;
+            width: 50px;
+        }
+        .order-summary {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        .summary-item, .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tickets Section -->
+    <section class="tickets-main">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Tickets</span>
+                </span>
+                <h2>Choose Your Experience</h2>
+                <p>Select the perfect ticket package for your ArtFunFest adventure</p>
+                <div id="timer">
+                    Time left until the event:
+                    <span id="days"></span> days
+                    <span id="hours"></span> hours
+                    <span id="minutes"></span> minutes
+                    <span id="seconds"></span> seconds
+                </div>
+            </div>
+            
+            <div class="tickets-grid">
+                <div class="ticket-card">
+                    <div class="ticket-header">
+                        <div class="ticket-icon">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <h3>Single Day Pass</h3>
+                        <div class="ticket-price">
+                            <span class="currency">₦</span>
+                            <span class="amount">89</span>
+                            <span class="period">per day</span>
+                        </div>
+                        <div class="ticket-availability">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Available</span>
+                        </div>
+                    </div>
+                    <div class="ticket-features">
+                        <h4>What's Included:</h4>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Access to all exhibitions</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>5 workshop sessions</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Food & beverage vouchers (₦20 value)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Festival merchandise bag</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Access to main stages</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Digital festival guide</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline ticket-btn" data-ticket="single" data-price="89">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Select Ticket</span>
+                    </button>
+                </div>
+                
+                <div class="ticket-card featured">
+                    <div class="ticket-badge">
+                        <i class="fas fa-crown"></i>
+                        <span>Most Popular</span>
+                    </div>
+                    <div class="ticket-header">
+                        <div class="ticket-icon">
+                            <i class="fas fa-calendar-week"></i>
+                        </div>
+                        <h3>3-Day Festival Pass</h3>
+                        <div class="ticket-price">
+                            <span class="currency">₦</span>
+                            <span class="amount">199</span>
+                            <span class="period">all 3 days</span>
+                        </div>
+                        <div class="ticket-availability">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Available</span>
+                        </div>
+                    </div>
+                    <div class="ticket-features">
+                        <h4>Everything in Single Day, plus:</h4>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Full festival access (3 days)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>All workshop sessions</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>VIP lounge access</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Exclusive meet & greets</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Premium merchandise package</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Priority seating at performances</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary ticket-btn" data-ticket="festival" data-price="199">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Select Ticket</span>
+                    </button>
+                </div>
+                
+                <div class="ticket-card">
+                    <div class="ticket-header">
+                        <div class="ticket-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>VIP Experience</h3>
+                        <div class="ticket-price">
+                            <span class="currency">₦</span>
+                            <span class="amount">399</span>
+                            <span class="period">ultimate access</span>
+                        </div>
+                        <div class="ticket-availability limited">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Limited Availability</span>
+                        </div>
+                    </div>
+                    <div class="ticket-features">
+                        <h4>Everything in 3-Day Pass, plus:</h4>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>All festival benefits</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Private artist sessions</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Backstage tours</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Gourmet dining experience</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Personal concierge service</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>VIP parking pass</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline ticket-btn" data-ticket="vip" data-price="399">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Select Ticket</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ticket Modal -->
+    <div class="modal" id="ticket-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Purchase Tickets</span>
+                </h3>
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="ticket-form" id="ticket-form">
+                    <div class="form-section">
+                        <h4>
+                            <i class="fas fa-info-circle"></i>
+                            <span>Ticket Information</span>
+                        </h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Ticket Type</label>
+                                <input type="text" id="ticket-type" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Quantity</label>
+                                <div class="quantity-control">
+                                    <button type="button" class="qty-btn" id="qty-minus">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <input type="number" id="ticket-quantity" value="1" min="1" max="10" readonly>
+                                    <button type="button" class="qty-btn" id="qty-plus">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Add-ons</span>
+                        </h4>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" class="addon-checkbox" data-name="Parking Pass" data-price="20">
+                                Parking Pass (₦20)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" class="addon-checkbox" data-name="Merchandise Bundle" data-price="50">
+                                Merchandise Bundle (₦50)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>
+                            <i class="fas fa-user"></i>
+                            <span>Personal Information</span>
+                        </h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" id="first-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" id="last-name" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <div class="order-summary">
+                            <h4>
+                                <i class="fas fa-receipt"></i>
+                                <span>Order Summary</span>
+                            </h4>
+                            <div class="summary-item" id="ticket-item">
+                                <span class="item-name" id="summary-ticket">Single Day Pass x 1</span>
+                                <span class="item-price" id="ticket-price">₦89.00</span>
+                            </div>
+                            <div id="addons-list"></div>
+                            <div class="summary-item">
+                                <span class="item-name">Service Fee</span>
+                                <span class="item-price">₦5.00</span>
+                            </div>
+                            <div class="summary-total">
+                                <span class="total-label">Total</span>
+                                <span class="total-price" id="total-price">₦94.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="modal-cancel">
+                            <i class="fas fa-times"></i>
+                            <span>Cancel</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Purchase Tickets</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ticketPrices = {
+            single: 89,
+            festival: 199,
+            vip: 399
+        };
+        const ticketNames = {
+            single: 'Single Day Pass',
+            festival: '3-Day Festival Pass',
+            vip: 'VIP Experience'
+        };
+
+        // Timer setup
+        const targetDate = new Date('2025-07-16T00:00:00').getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            if (distance < 0) {
+                document.getElementById('timer').innerHTML = 'Event has started!';
+                return;
+            }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }, 1000);
+
+        document.querySelectorAll('.ticket-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const ticketType = button.dataset.ticket;
+                openTicketModal(ticketType);
+            });
+        });
+
+        function openTicketModal(ticketType) {
+            const modal = document.getElementById('ticket-modal');
+            const typeInput = document.getElementById('ticket-type');
+            const quantityInput = document.getElementById('ticket-quantity');
+            const addonCheckboxes = document.querySelectorAll('.addon-checkbox');
+            
+            typeInput.value = ticketNames[ticketType];
+            typeInput.dataset.type = ticketType;
+            quantityInput.value = 1;
+            addonCheckboxes.forEach(checkbox => checkbox.checked = false);
+            
+            updateTicketTotal();
+            modal.style.display = 'block';
+            setTimeout(() => {
+                modal.querySelector('.modal-content').style.transform = 'scale(1)';
+                modal.querySelector('.modal-content').style.opacity = '1';
+            }, 10);
+        }
+
+        function updateTicketTotal() {
+            const typeInput = document.getElementById('ticket-type');
+            const quantityInput = document.getElementById('ticket-quantity');
+            const ticketItem = document.getElementById('ticket-item');
+            const summaryTicket = document.getElementById('summary-ticket');
+            const ticketPrice = document.getElementById('ticket-price');
+            const addonsList = document.getElementById('addons-list');
+            const totalElement = document.getElementById('total-price');
+            const addonCheckboxes = document.querySelectorAll('.addon-checkbox');
+            
+            const ticketType = typeInput.dataset.type;
+            const quantity = parseInt(quantityInput.value) || 1;
+            const price = ticketPrices[ticketType] || 0;
+            
+            // Update ticket summary
+            summaryTicket.textContent = `${ticketNames[ticketType]} x ${quantity}`;
+            ticketPrice.textContent = '₦' + (price * quantity).toFixed(2);
+            
+            // Calculate add-ons total
+            const selectedAddons = Array.from(addonCheckboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => ({
+                    name: checkbox.dataset.name,
+                    price: parseFloat(checkbox.dataset.price)
+                }));
+            const addonsTotal = selectedAddons.reduce((sum, addon) => sum + addon.price, 0);
+            
+            // Update add-ons list
+            addonsList.innerHTML = '';
+            selectedAddons.forEach(addon => {
+                const addonItem = document.createElement('div');
+                addonItem.className = 'summary-item';
+                addonItem.innerHTML = `<span class="item-name">${addon.name}</span><span class="item-price">₦${addon.price.toFixed(2)}</span>`;
+                addonsList.appendChild(addonItem);
+            });
+            
+            // Calculate and update total
+            const total = (price * quantity) + addonsTotal + 5; // Service fee
+            totalElement.textContent = '₦' + total.toFixed(2);
+        }
+
+        document.getElementById('qty-plus').addEventListener('click', () => {
+            const qtyInput = document.getElementById('ticket-quantity');
+            if (parseInt(qtyInput.value) < 10) {
+                qtyInput.value = parseInt(qtyInput.value) + 1;
+                updateTicketTotal();
+            }
+        });
+
+        document.getElementById('qty-minus').addEventListener('click', () => {
+            const qtyInput = document.getElementById('ticket-quantity');
+            if (parseInt(qtyInput.value) > 1) {
+                qtyInput.value = parseInt(qtyInput.value) - 1;
+                updateTicketTotal();
+            }
+        });
+
+        document.querySelectorAll('.addon-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', updateTicketTotal);
+        });
+
+        document.getElementById('modal-close').addEventListener('click', closeModal);
+        document.getElementById('modal-cancel').addEventListener('click', closeModal);
+        document.getElementById('ticket-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Tickets purchased successfully!');
+            closeModal();
+        });
+
+        function closeModal() {
+            const modal = document.getElementById('ticket-modal');
+            modal.querySelector('.modal-content').style.transform = 'scale(0.9)';
+            modal.querySelector('.modal-content').style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.getElementById('ticket-form').reset();
+            }, 300);
+        }
+    </script>
+</body>
+</html>

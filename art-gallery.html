@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Explore and purchase African artworks at ArtFunFest Afro Fusion 2025.">
+    <meta name="keywords" content="African art, art gallery, ArtFunFest, Afro Fusion, buy art">
+    <title>Art Gallery - ArtFunFest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="asset/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/framer-motion@11.3.28/dist/framer-motion.min.js"></script>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #A32638;
+            --secondary-color: #FFFFFF;
+            --accent-color: #D9534F;
+            --success-color: #4ade80;
+            --error-color: #ef4444;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4b5563;
+            --text-light: #9ca3af;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #A32638, #D9534F);
+            --gradient-accent: linear-gradient(135deg, #D9534F, #e76f51);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --footer-bg: #4b5563; /* Changed to grey */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--secondary-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: min(95%, 1280px);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Styles */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3.5vw, 1.75rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: clamp(32px, 5vw, 40px);
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.75rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-tickets,
+        .btn-cart {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.5rem;
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-tickets:hover,
+        .btn-cart:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .nav-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Page Header */
+        .page-header {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .page-header-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            font-size: 0.9375rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.25rem, 6vw, 3.5rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .page-header p {
+            font-size: clamp(1.125rem, 3vw, 1.25rem);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, #f9fafb, #f1f5f9);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(163, 38, 56, 0.15);
+            color: var(--primary-color);
+            padding: 0.625rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .gallery-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .gallery-search {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            max-width: 350px;
+        }
+
+        #gallery-search {
+            flex: 1;
+            padding: 0.875rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-size: 0.9375rem;
+            background: #f9fafb;
+            transition: var(--transition);
+        }
+
+        #gallery-search:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(163, 38, 56, 0.1);
+        }
+
+        .gallery-filters {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.625rem 1.25rem;
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+        }
+
+        .gallery-sort select {
+            padding: 0.875rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-size: 0.9375rem;
+            background: #f9fafb;
+            transition: var(--transition);
+        }
+
+        .gallery-sort select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(163, 38, 56, 0.1);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .artwork-item {
+            background: var(--secondary-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .artwork-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .artwork-image {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
+
+        .artwork-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .artwork-item:hover .artwork-image img {
+            transform: scale(1.1);
+        }
+
+        .artwork-info {
+            padding: 1.5rem;
+        }
+
+        .artwork-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .artwork-artist {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .artwork-artist-picture {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+
+        .artwork-price {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 0.875rem;
+            margin-top: 1rem;
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-to-cart:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .modal-content {
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            max-width: min(90%, 600px);
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.75rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--accent-color);
+        }
+
+        #cart-items {
+            margin-bottom: 1.5rem;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-item span:first-child {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-item-remove {
+            background: var(--error-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cart-item-remove:hover {
+            background: #b91c1c;
+        }
+
+        #cart-total {
+            font-weight:adle 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+        }
+
+        .lightbox-content {
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            max-width: min(90%, 800px);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            text-align: left;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+        }
+
+        .lightbox-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .lightbox-content p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .lightbox-content .artwork-artist {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .close-lightbox:hover {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--footer-bg);
+            color: var(--secondary-color);
+            padding: 4rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            height: clamp(36px, 6vw, 48px);
+            width: auto;
+            object-fit: contain;
+        }
+
+        .footer-section p {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.375rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--secondary-color);
+            font-size: 1.75rem;
+            margin-right: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-info .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-info .label {
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+
+        .contact-info .value {
+            font-size: 0.9375rem;
+            color: var(--text-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9375rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Enhanced Responsive Styles */
+        @media (max-width: 1024px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .nav-actions {
+                gap: 0.5rem;
+            }
+
+            .btn-tickets,
+            .btn-cart {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--secondary-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 999;
+                padding: 2rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                font-size: 1.25rem;
+                padding: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .gallery-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .gallery-search,
+            .gallery-filters,
+            .gallery-sort {
+                width: 100%;
+                max-width: none;
+            }
+
+            .page-header {
+                min-height: 40vh;
+                padding: 2rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: clamp(1.75rem, 5vw, 2.5rem);
+            }
+
+            .page-header p {
+                font-size: clamp(0.9375rem, 2.5vw, 1.125rem);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.25rem;
+            }
+
+            .footer-logo img {
+                height: clamp(28px, 5vw, 36px);
+            }
+
+            .artwork-artist-picture {
+                width: 32px;
+                height: 32px;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+                max-width: 95%;
+            }
+
+            .lightbox-content {
+                padding: 1.5rem;
+                max-width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-logo {
+                font-size: clamp(1.25rem, 3vw, 1.5rem);
+            }
+
+            .nav-logo img {
+                height: clamp(24px, 4vw, 32px);
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .artwork-image {
+                aspect-ratio: 1 / 1;
+            }
+
+            .artwork-info {
+                padding: 1rem;
+            }
+
+            .artwork-title {
+                font-size: 1.25rem;
+            }
+
+            .artwork-price {
+                font-size: 1rem;
+            }
+
+            .add-to-cart {
+                padding: 0.75rem;
+                font-size: 0.875rem;
+            }
+
+            .footer-logo {
+                font-size: clamp(1rem, 2.5vw, 1.25rem);
+            }
+
+            .footer-logo img {
+                height: clamp(24px, 4vw, 32px);
+            }
+
+            .footer-section h4 {
+                font-size: 1.25rem;
+            }
+
+            .footer-section p,
+            .footer-section ul li a,
+            .contact-info .label,
+            .contact-info .value {
+                font-size: 0.875rem;
+            }
+
+            .artwork-artist-picture {
+                width: 28px;
+                height: 28px;
+            }
+
+            .social-links a {
+                font-size: 1.5rem;
+                margin-right: 1rem;
+            }
+
+            .back-to-top {
+                width: 48px;
+                height: 48px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo" aria-label="ArtFunFest Afro Fusion Home">
+                    <img src="asset/logo.png" alt="ArtFunFest Afro Fusion Logo" class="logo-image" loading="lazy">
+                </a>
+                <ul class="nav-menu" id="nav-menu" aria-label="Main navigation">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="art-gallery.html" class="nav-link active" aria-current="page"><i class="fas fa-palette"></i> Art Gallery</a></li>
+                    <li><a href="gallery.html" class="nav-link"><i class="fas fa-camera"></i> Gallery</a></li>
+                    <li><a href="artist-register-upload.html" class="nav-link"><i class="fas fa-user-plus"></i> Artist Register</a></li>
+                    <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                    <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn-tickets" aria-label="Get Tickets" onclick="alert('Ticket purchasing coming soon!')">
+                        <i class="fas fa-ticket-alt"></i> Get Tickets
+                    </button>
+                    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header" role="region" aria-label="Art Gallery Header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <div class="page-header-content">
+                <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Art Gallery</span>
+                </nav>
+                <h1><i class="fas fa-palette"></i> Art Gallery</h1>
+                <p>Discover and purchase stunning artworks by talented African artists.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" role="region" aria-label="Art Gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-palette"></i> Gallery</span>
+                <h2>Explore African Art</h2>
+                <p>Browse our collection of paintings, sculptures, and photography.</p>
+            </div>
+            <div class="gallery-controls">
+                <div class="gallery-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="gallery-search" placeholder="Search artworks..." aria-label="Search artworks">
+                </div>
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="painting">Painting</button>
+                    <button class="filter-btn" data-filter="sculpture">Sculpture</button>
+                    <button class="filter-btn" data-filter="photography">Photography</button>
+                </div>
+                <div class="gallery-sort">
+                    <select id="gallery-sort" aria-label="Sort artworks">
+                        <option value="default">Sort by: Default</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="title-asc">Title: A to Z</option>
+                    </select>
+                </div>
+            </div>
+            <div class="gallery-grid" id="gallery-grid"></div>
+        </div>
+    </section>
+
+    <div class="modal" id="cart-modal" role="dialog" aria-labelledby="cart-title">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close cart modal">×</button>
+            <h3 id="cart-title">Your Cart</h3>
+            <div id="cart-items"></div>
+            <p id="cart-total">Total: NGN 0</p>
+            <button class="btn-primary" onclick="alert('Checkout functionality coming soon!')">Checkout</button>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-labelledby="lightbox-title">
+        <div class="lightbox-content" id="lightbox-content">
+            <button class="close-lightbox" aria-label="Close lightbox">×</button>
+        </div>
+    </div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="index.html" class="footer-logo">
+                        <img src="asset/logo.png" alt="ArtFunFest Afro Fusion Logo" class="logo-image" loading="lazy">
+                        <span>ArtFunFest Afro Fusion</span>
+                    </a>
+                    <p>The ultimate celebration of African art, music, and culture at Olabisi Onabanjo University, Ago Iwoye.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/artfunfest/?igsh=MWltcjNucTE0dGR1bA%3D%3D&utm_source=qr" class="instagram" aria-label="Follow on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="twitter" aria-label="Follow on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="facebook" aria-label="Follow on Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-link"></i> Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-angle-right"></i> About Festival</a></li>
+                        <li><a href="lineup.html"><i class="fas fa-angle-right"></i> Artist Lineup</a></li>
+                        <li><a href="art-gallery.html"><i class="fas fa-angle-right"></i> Art Gallery</a></li>
+                        <li><a href="venue.html"><i class="fas fa-angle-right"></i> Venue Info</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-angle-right"></i> Photo Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-headset"></i> Support</h4>
+                    <ul>
+                        <li><a href="faq.html"><i class="fas fa-angle-right"></i> FAQ</a></li>
+                        <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                        <li><a href="terms.html"><i class="fas fa-angle-right"></i> Terms & Conditions</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+                        <li><a href="refund.html"><i class="fas fa-angle-right"></i> Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-info-circle"></i> Event Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <span class="label">Date</span>
+                                <span class="value">August 10, 2025</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Location</span>
+                                <span class="value">Olabisi Onabanjo University, Ago Iwoye</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <span class="value">Artfunfestng@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <span class="value">+234-8057772961</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 ArtFunFest Afro Fusion. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Ensure Framer Motion is loaded
+        const { motion } = window.framer || {};
+
+        // Error handling wrapper
+        function safeExecute(fn, errorMessage) {
+            try {
+                return fn();
+            } catch (error) {
+                console.error(errorMessage, error);
+                return null;
+            }
+        }
+
+        // Navigation Menu Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isActive = navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', isActive);
+                navMenu.style.display = isActive ? 'flex' : 'none';
+                if (motion) {
+                    motion.spring({
+                        from: { opacity: isActive ? 0 : 1, scale: isActive ? 0.8 : 1 },
+                        to: { opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0.8 },
+                        config: { stiffness: 120, damping: 12 },
+                        onUpdate: (value) => {
+                            navMenu.style.opacity = value.opacity;
+                            navMenu.style.transform = `scale(${value.scale})`;
+                        },
+                        onComplete: () => {
+                            if (!isActive) {
+                                navMenu.style.display = 'none';
+                            }
+                        }
+                    });
+                } else {
+                    navMenu.style.opacity = isActive ? 1 : 0;
+                    if (!isActive) {
+                        navMenu.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Close menu when clicking a nav link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navMenu.style.display = 'none';
+                    if (motion) {
+                        motion.spring({
+                            from: { opacity: 1, scale: 1 },
+                            to: { opacity: 0, scale: 0.8 },
+                            config: { stiffness: 120, damping: 12 },
+                            onUpdate: (value) => {
+                                navMenu.style.opacity = value.opacity;
+                                navMenu.style.transform = `scale(${value.scale})`;
+                            },
+                            onComplete: () => {
+                                navMenu.style.display = 'none';
+                            }
+                        });
+                    }
+                }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navMenu.style.display = 'none';
+                if (motion) {
+                    motion.spring({
+                        from: { opacity: 1, scale: 1 },
+                        to: { opacity: 0, scale: 0.8 },
+                        config: { stiffness: 120, damping: 12 },
+                        onUpdate: (value) => {
+                            navMenu.style.opacity = value.opacity;
+                            navMenu.style.transform = `scale(${value.scale})`;
+                        },
+                        onComplete: () => {
+                            navMenu.style.display = 'none';
+                        }
+                    });
+                }
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        if (backToTop) {
+            window.addEventListener('scroll', () => {
+                backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+                if (motion) {
+                    motion.spring({
+                        from: { opacity: backToTop.style.display === 'flex' ? 0 : 1 },
+                        to: { opacity: backToTop.style.display === 'flex' ? 1 : 0 },
+                        config: { stiffness: 100, damping: 15 },
+                        onUpdate: (value) => {
+                            backToTop.style.opacity = value.opacity;
+                        }
+                    });
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Gallery Logic
+        const galleryGrid = document.getElementById('gallery-grid');
+        const gallerySearch = document.getElementById('gallery-search');
+        const gallerySort = document.getElementById('gallery-sort');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const cartModal = document.getElementById('cart-modal');
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartClose = cartModal?.querySelector('.modal-close');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxClose = lightbox?.querySelector('.close-lightbox');
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) {
+                cartCount.textContent = cart.length;
+            }
+        }
+
+        function renderGallery(filteredArtworks) {
+            if (!galleryGrid) return;
+            galleryGrid.innerHTML = '';
+            filteredArtworks.forEach((artwork, index) => {
+                const item = document.createElement('div');
+                item.classList.add('artwork-item');
+                item.setAttribute('role', 'article');
+                item.innerHTML = `
+                    <div class="artwork-image" data-id="${artwork.id}">
+                        <img src="${artwork.image || 'asset/placeholder.png'}" alt="${artwork.title} by ${artwork.artist}" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">${artwork.title}</h3>
+                        <p class="artwork-artist">
+                            ${artwork.artistPicture ? `<img src="${artwork.artistPicture}" alt="${artwork.artist} profile" class="artwork-artist-picture">` : ''}
+                            by ${artwork.artist}
+                        </p>
+                        <p class="artwork-price">NGN ${artwork.price.toLocaleString()}</p>
+                        <button class="add-to-cart" onclick="addToCart(${artwork.id})" aria-label="Add ${artwork.title} to cart">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                `;
+                galleryGrid.appendChild(item);
+                if (motion) {
+                    motion.spring({
+                        from: { opacity: 0, y: 50 },
+                        to: { opacity: 1, y: 0 },
+                        delay: index * 0.1,
+                        config: { stiffness: 120, damping: 15 },
+                        onUpdate: (value) => {
+                            item.style.transform = `translateY(${value.y}px)`;
+                            item.style.opacity = value.opacity;
+                        }
+                    });
+                }
+            });
+        }
+
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            if (!cartItems || !cartTotal) return;
+            cartItems.innerHTML = '';
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p>Your cart is empty.</p>';
+                cartTotal.textContent = 'Total: NGN 0';
+                return;
+            }
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <span>
+                        ${item.artistPicture ? `<img src="${item.artistPicture}" alt="${item.artist} profile" class="artwork-artist-picture">` : ''}
+                        ${item.title} by ${item.artist}
+                    </span>
+                    <span>NGN ${item.price.toLocaleString()}</span>
+                    <button class="cart-item-remove" onclick="removeFromCart(${item.id})" aria-label="Remove ${item.title} from cart">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            cartTotal.textContent = `Total: NGN ${total.toLocaleString()}`;
+        }
+
+        function addToCart(id) {
+            safeExecute(() => {
+                const artworks = JSON.parse(localStorage.getItem('artworks') || '[]');
+                const artwork = artworks.find(a => a.id === id);
+                if (artwork && !cart.some(item => item.id === id)) {
+                    cart.push(artwork);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartCount();
+                    renderCart();
+                    if (cartModal) {
+                        cartModal.style.display = 'flex';
+                        if (motion) {
+                            motion.spring({
+                                from: { opacity: 0, scale: 0.8 },
+                                to: { opacity: 1, scale: 1 },
+                                config: { stiffness: 120, damping: 12 },
+                                onUpdate: (value) => {
+                                    cartModal.querySelector('.modal-content').style.transform = `scale(${value.scale})`;
+                                    cartModal.querySelector('.modal-content').style.opacity = value.opacity;
+                                }
+                            });
+                        }
+                    }
+                }
+            }, 'Error adding to cart');
+        }
+
+        function removeFromCart(id) {
+            safeExecute(() => {
+                cart = cart.filter(item => item.id !== id);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                renderCart();
+            }, 'Error removing from cart');
+        }
+
+        function openLightbox(artwork) {
+            safeExecute(() => {
+                if (!lightbox) return;
+                const lightboxContent = document.getElementById('lightbox-content');
+                if (!lightboxContent) return;
+                lightboxContent.innerHTML = `
+                    <button class="close-lightbox" aria-label="Close lightbox">×</button>
+                    <img src="${artwork.image || 'asset/placeholder.png'}" alt="${artwork.title} by ${artwork.artist}" loading="lazy">
+                    <h3 id="lightbox-title">${artwork.title}</h3>
+                    <p class="artwork-artist">
+                        ${artwork.artistPicture ? `<img src="${artwork.artistPicture}" alt="${artwork.artist} profile" class="artwork-artist-picture">` : ''}
+                        by ${artwork.artist}
+                    </p>
+                    <p>${artwork.description}</p>
+                    <p>Category: ${artwork.category}</p>
+                    <p>Price: NGN ${artwork.price.toLocaleString()}</p>
+                    <button class="btn-primary" onclick="addToCart(${artwork.id})"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                `;
+                lightbox.style.display = 'flex';
+                if (motion) {
+                    motion.spring({
+                        from: { opacity: 0, scale: 0.8 },
+                        to: { opacity: 1, scale: 1 },
+                        config: { stiffness: 120, damping: 12 },
+                        onUpdate: (value) => {
+                            lightboxContent.style.transform = `scale(${value.scale})`;
+                            lightboxContent.style.opacity = value.opacity;
+                        }
+                    });
+                }
+                lightbox.focus();
+            }, 'Error opening lightbox');
+        }
+
+        function closeModal(modal) {
+            if (!modal) return;
+            if (motion) {
+                motion.spring({
+                    from: { opacity: 1, scale: 1 },
+                    to: { opacity: 0, scale: 0.8 },
+                    config: { stiffness: 120, damping: 12 },
+                    onUpdate: (value) => {
+                        const content = modal.querySelector('.modal-content, .lightbox-content');
+                        if (content) {
+                            content.style.transform = `scale(${value.scale})`;
+                            content.style.opacity = value.opacity;
+                        }
+                    },
+                    onComplete: () => {
+                        modal.style.display = 'none';
+                    }
+                });
+            } else {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Event Listeners
+        if (cartToggle && cartModal) {
+            cartToggle.addEventListener('click', () => {
+                cartModal.style.display = 'flex';
+                renderCart();
+                if (motion) {
+                    motion.spring({
+                        from: { opacity: 0, scale: 0.8 },
+                        to: { opacity: 1, scale: 1 },
+                        config: { stiffness: 120, damping: 12 },
+                        onUpdate: (value) => {
+                            cartModal.querySelector('.modal-content').style.transform = `scale(${value.scale})`;
+                            cartModal.querySelector('.modal-content').style.opacity = value.opacity;
+                        }
+                    });
+                }
+            });
+        }
+
+        if (cartClose && cartModal) {
+            cartClose.addEventListener('click', () => closeModal(cartModal));
+        }
+
+        if (lightboxClose && lightbox) {
+            lightboxClose.addEventListener('click', () => closeModal(lightbox));
+        }
+
+        if (galleryGrid) {
+            galleryGrid.addEventListener('click', (e) => {
+                const artworkImage = e.target.closest('.artwork-image');
+                if (artworkImage) {
+                    const id = parseInt(artworkImage.dataset.id);
+                    const artworks = JSON.parse(localStorage.getItem('artworks') || '[]');
+                    const artwork = artworks.find(a => a.id === id);
+                    if (artwork) openLightbox(artwork);
+                }
+            });
+        }
+
+        if (gallerySearch) {
+            gallerySearch.addEventListener('input', () => {
+                const artworks = JSON.parse(localStorage.getItem('artworks') || '[]');
+                const searchTerm = gallerySearch.value.toLowerCase();
+                const filtered = artworks.filter(artwork =>
+                    artwork.title.toLowerCase().includes(searchTerm) ||
+                    artwork.artist.toLowerCase().includes(searchTerm)
+                );
+                renderGallery(filtered);
+            });
+        }
+
+        if (filterButtons) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filter = button.dataset.filter;
+                    const artworks = JSON.parse(localStorage.getItem('artworks') || '[]');
+                    const filtered = filter === 'all' ? artworks : artworks.filter(artwork => artwork.category === filter);
+                    renderGallery(filtered);
+                });
+            });
+        }
+
+        if (gallerySort) {
+            gallerySort.addEventListener('change', () => {
+                const artworks = JSON.parse(localStorage.getItem('artworks') || '[]');
+                const sortValue = gallerySort.value;
+                let sorted = [...artworks];
+                if (sortValue === 'price-asc') {
+                    sorted.sort((a, b) => a.price - b.price);
+                } else if (sortValue === 'price-desc') {
+                    sorted.sort((a, b) => b.price - a.price);
+                } else if (sortValue === 'title-asc') {
+                    sorted.sort((a, b) => a.title.localeCompare(b.title));
+                }
+                renderGallery(sorted);
+            });
+        }
+
+        if (cartModal) {
+            cartModal.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal(cartModal);
+            });
+        }
+
+        if (lightbox) {
+            lightbox.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal(lightbox);
+            });
+        }
+
+        // Initialize
+        safeExecute(() => {
+            const artworks = JSON.parse(localStorage.getItem('artworks') || '[]');
+            renderGallery(artworks);
+            updateCartCount();
+            renderCart();
+        }, 'Error initializing gallery');
+    </script>
+</body>
+</html>

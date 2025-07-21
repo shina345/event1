@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Explore photos and videos from previous ArtFunFest events. See the amazing art, performances, and experiences.">
+    <meta name="keywords" content="ArtFunFest, gallery, African art, festival photos, festival videos">
+    <title>Gallery - ArtFunFest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="asset/logo.png">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #A32638;
+            --secondary-color: #FFFFFF;
+            --accent-color: #D9534F;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #A32638, #D9534F);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --footer-bg: #4b5563; /* Grey footer */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--secondary-color);
+            font-size: clamp(14px, 2vw, 16px);
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Container */
+        .container {
+            max-width: min(95%, 1280px);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: clamp(40px, 5vw, 50px);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            background: rgba(163, 38, 56, 0.1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-tickets {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-tickets:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Page Header */
+        .page-header {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            margin-top: 0;
+        }
+
+        .page-header-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -2;
+        }
+
+        .page-header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(163, 38, 56, 0.8), rgba(217, 83, 79, 0.8));
+            z-index: -1;
+        }
+
+        .page-header-content {
+            text-align: center;
+            color: var(--secondary-color);
+            z-index: 2;
+            animation: slideIn 0.5s ease-out;
+            max-width: 800px;
+            padding: 2rem 1rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9375rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
+        }
+
+        .page-header h1 {
+            font-size: clamp(1.75rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .page-header p {
+            font-size: clamp(0.9375rem, 2.5vw, 1.125rem);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 3rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(163, 38, 56, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .section-header p {
+            font-size: clamp(0.9375rem, 2vw, 1.125rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Gallery Filters */
+        .gallery-filters {
+            background: #F8F9FA;
+            padding: 1.5rem 0;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: var(--secondary-color);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Main Gallery */
+        .main-gallery {
+            background: #F8F9FA;
+            padding: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .gallery-item.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .gallery-item:not(.hidden) {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.25rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-info {
+            color: var(--secondary-color);
+        }
+
+        .gallery-info h4 {
+            font-size: clamp(0.9375rem, 2vw, 1.125rem);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .gallery-info p {
+            font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+        }
+
+        .view-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            color: var(--secondary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .view-btn:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .gallery-load-more {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Video Gallery */
+        .video-gallery {
+            padding: 3rem 0;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .video-item {
+            background: var(--secondary-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            border-radius: 50%;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+
+        .video-play-btn:hover {
+            background: var(--primary-color);
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-play-btn.playing {
+            opacity: 0;
+        }
+
+        .video-play-btn.playing:hover {
+            opacity: 1;
+        }
+
+        .video-play-btn i {
+            transition: var(--transition);
+        }
+
+        .video-play-btn.playing i.fa-play {
+            display: none;
+        }
+
+        .video-play-btn.playing i.fa-pause {
+            display: inline;
+        }
+
+        .video-play-btn i.fa-pause {
+            display: none;
+        }
+
+        .video-info {
+            padding: 1.25rem;
+        }
+
+        .video-info h4 {
+            font-size: clamp(0.9375rem, 2vw, 1.125rem);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-info p {
+            color: var(--text-secondary);
+            font-size: clamp(0.875rem, 1.5vw, 0.9375rem);
+        }
+
+        .video-stats {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.8125rem;
+            color: var(--text-light);
+        }
+
+        /* Social Gallery */
+        .social-gallery {
+            background: #F8F9FA;
+            padding: 3rem 0;
+        }
+
+        .social-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+
+        .social-hashtags {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .hashtag-item {
+            background: var(--secondary-color);
+            padding: 1.25rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .hashtag {
+            display: block;
+            font-size: clamp(0.9375rem, 2vw, 1.125rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .count {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .social-feed {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .social-post {
+            background: var(--secondary-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .social-post:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+        }
+
+        .post-avatar {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 1.125rem;
+        }
+
+        .post-info h5 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .post-info span {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .post-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 0.75rem;
+        }
+
+        .post-content p {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        .post-stats {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.8125rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--footer-bg);
+            color: var(--secondary-color);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+            font-weight: 800;
+        }
+
+        .footer-logo img {
+            width: clamp(36px, 5vw, 48px);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .footer-section p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 0.9375rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.625rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .contact-item i {
+            width: 18px;
+            color: var(--accent-color);
+        }
+
+        .contact-item .label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .contact-item .value {
+            font-weight: 500;
+            color: var(--secondary-color);
+            font-size: 0.9375rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: 0.75rem;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 48px;
+            height: 48px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.125rem;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox.active {
+            background: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox-overlay {
+            position: absolute;
+            inset: 0;
+            cursor: pointer;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: min(90vw, 800px);
+            max-height: 90vh;
+            background: var(--secondary-color);
+            border-radius: var(--border-radius);
+            overflow-y: auto;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+            opacity: 1;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            width: 36px;
+            height: 36px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-size: 1.125rem;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .lightbox-image img {
+            width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-info {
+            padding: 1.5rem;
+        }
+
+        .lightbox-info h3 {
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .lightbox-info p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0.75rem;
+        }
+
+        .lightbox-prev,
+        .lightbox-next {
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-size: 1.125rem;
+            transition: var(--transition);
+        }
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: var(--primary-color);
+        }
+
+        /* Enhanced Responsive Styles */
+        @media (min-width: 1921px) {
+            .container {
+                max-width: 1600px;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            .nav-actions {
+                gap: 0.5rem;
+            }
+            .btn-tickets {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 1rem;
+            }
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            }
+            .social-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--secondary-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 999;
+                padding: 2rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                font-size: 1.125rem;
+                padding: 0.75rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .page-header {
+                min-height: 40vh;
+            }
+
+            .page-header h1 {
+                font-size: clamp(1.5rem, 4vw, 2.25rem);
+            }
+
+            .page-header p {
+                font-size: clamp(0.875rem, 2vw, 1rem);
+            }
+
+            .filter-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-tab {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-content {
+                grid-template-columns: 1fr;
+            }
+
+            .social-feed {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-logo img {
+                width: clamp(32px, 4vw, 40px);
+            }
+
+            .social-links a {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-logo {
+                font-size: clamp(1rem, 2.5vw, 1.25rem);
+            }
+
+            .logo-img {
+                width: clamp(32px, 4vw, 40px);
+            }
+
+            .btn-tickets {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.875rem;
+            }
+
+            .page-header h1 {
+                font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+            }
+
+            .section-header h2 {
+                font-size: clamp(1.5rem, 3.5vw, 2rem);
+            }
+
+            .gallery-item img,
+            .video-thumbnail video {
+                height: 200px;
+            }
+
+            .post-image img {
+                height: 160px;
+            }
+
+            .gallery-info h4,
+            .video-info h4,
+            .lightbox-info h3 {
+                font-size: 1rem;
+            }
+
+            .gallery-info p,
+            .video-info p,
+            .lightbox-info p {
+                font-size: 0.875rem;
+            }
+
+            .video-play-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 1.125rem;
+            }
+
+            .lightbox-content {
+                max-width: 95vw;
+            }
+
+            .lightbox-prev,
+            .lightbox-next {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .footer-section h4 {
+                font-size: 1rem;
+            }
+
+            .footer-section p,
+            .footer-section ul li a,
+            .contact-item .label,
+            .contact-item .value {
+                font-size: 0.875rem;
+            }
+
+            .badge {
+                font-size: 0.8125rem;
+                padding: 0.375rem 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation">
+            <div class="container">
+                <div class="nav-container">
+                    <a href="index.html" class="nav-logo" aria-label="ArtFunFest Home">
+                        <img src="asset/logo.png" alt="ArtFunFest Logo" class="logo-img" loading="lazy">
+                        <span>ArtFunFest</span>
+                    </a>
+                    <ul class="nav-menu" id="nav-menu" aria-label="Main navigation">
+                        <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li class="nav-item"><a href="tickets.html" class="nav-link"><i class="fas fa-ticket-alt"></i> Tickets</a></li>
+                        <li class="nav-item"><a href="gallery.html" class="nav-link active" aria-current="page"><i class="fas fa-images"></i> Gallery</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <li class="nav-item"><a href="art-gallery.html" class="nav-link"><i class="fas fa-palette"></i> Art Gallery</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <button class="btn-tickets" aria-label="Get Tickets" onclick="window.location.href='tickets.html'">
+                            <i class="fas fa-ticket-alt"></i> Get Tickets
+                        </button>
+                        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" role="region" aria-label="Gallery Header">
+        <div class="page-header-background">
+            <img src="asset/art.jpg" alt="Gallery Background" loading="lazy">
+            <div class="page-header-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="page-header-content">
+                <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Gallery</span>
+                </nav>
+                <h1><i class="fas fa-images"></i> Photo & Video Gallery</h1>
+                <p>Relive the magic of previous ArtFunFest events through stunning visuals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Filters -->
+    <section class="gallery-filters" role="region" aria-label="Gallery Filters">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all" aria-selected="true"><i class="fas fa-th"></i> All</button>
+                <button class="filter-tab" data-filter="art" aria-selected="false"><i class="fas fa-palette"></i> Art</button>
+                <button class="filter-tab" data-filter="performances" aria-selected="false"><i class="fas fa-music"></i> Performances</button>
+                <button class="filter-tab" data-filter="workshops" aria-selected="false"><i class="fas fa-paint-brush"></i> Workshops</button>
+                <button class="filter-tab" data-filter="crowd" aria-selected="false"><i class="fas fa-users"></i> Crowd</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Gallery -->
+    <section class="main-gallery" role="region" aria-label="Photo Gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-images"></i> Gallery</span>
+                <h2>All Photos</h2>
+                <p>Browse through our complete collection of festival memories</p>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-item" data-category="art">
+                    <img src="asset/art7.jpg" alt="Modern Art Display" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Modern Art Display</h4>
+                            <p>Contemporary exhibition</p>
+                        </div>
+                        <button class="view-btn" aria-label="View Modern Art Display"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="performances">
+                    <img src="asset/art8.jpg" alt="Jazz Performance" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Jazz Performance</h4>
+                            <p>Evening concert</p>
+                        </div>
+                        <button class="view-btn" aria-label="View Jazz Performance"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="art">
+                    <img src="asset/art10.jpg" alt="Street Art" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Street Art Creation</h4>
+                            <p>Live mural painting</p>
+                        </div>
+                        <button class="view-btn" aria-label="View Street Art"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="crowd">
+                    <img src="asset/art11.jpg" alt="Festival Crowd" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Festival Energy</h4>
+                            <p>Crowd enjoying performances</p>
+                        </div>
+                        <button class="view-btn" aria-label="View Festival Crowd"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="workshops">
+                    <img src="asset/art9.jpg" alt="Art Workshop" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Painting Workshop</h4>
+                            <p>Hands-on art session</p>
+                        </div>
+                        <button class="view-btn" aria-label="View Art Workshop"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="performances">
+                    <img src="asset/art13.jpg" alt="Dance Performance" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Contemporary Dance</h4>
+                            <p>Performance stage</p>
+                        </div>
+                        <button class="view-btn" aria-label="View Dance Performance"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="art">
+                    <img src="asset/art3.jpg" alt="Sculpture Garden" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Sculpture Garden</h4>
+                            <p>Outdoor art installation</p>
+                        </div>
+                        <button class="view-btn" aria-label="View Sculpture Garden"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="crowd">
+                    <img src="asset/art4.jpg" alt="Food Court" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Culinary Experience</h4>
+                            <p>Food court atmosphere</p>
+                        </div>
+                        <button class="view-btn" aria-label="View Food Court"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-load-more">
+                <button class="btn btn-outline" id="load-more-btn" aria-label="Load More Images"><i class="fas fa-plus"></i> Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery -->
+    <section class="video-gallery" role="region" aria-label="Video Gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-video"></i> Videos</span>
+                <h2>Festival Videos</h2>
+                <p>Experience the energy and excitement through video highlights</p>
+            </div>
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <video class="video-player" preload="metadata" poster="">
+                            <source src="asset/hero.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <button class="video-play-btn" aria-label="Play Video">
+                            <i class="fas fa-play"></i>
+                            <i class="fas fa-pause"></i>
+                        </button>
+                    </div>
+                    <div class="video-info">
+                        <h4>ArtFunFest 2024 Recap</h4>
+                        <p>Highlights from our biggest festival yet</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> 125K views</span>
+                            <span><i class="fas fa-heart"></i> 3.2K likes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <video class="video-player" preload="metadata" poster="">
+                            <source src="asset/video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <button class="video-play-btn" aria-label="Play Video">
+                            <i class="fas fa-play"></i>
+                            <i class="fas fa-pause"></i>
+                        </button>
+                    </div>
+                    <div class="video-info">
+                        <h4>Main Stage Performance</h4>
+                        <p>Energetic live music from ArtFunFest 2024</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> 98K views</span>
+                            <span><i class="fas fa-heart"></i> 2.5K likes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <video class="video-player" preload="metadata" poster="https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=600">
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-art-workshop-in-session-1236-large.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <button class="video-play-btn" aria-label="Play Video">
+                            <i class="fas fa-play"></i>
+                            <i class="fas fa-pause"></i>
+                        </button>
+                    </div>
+                    <div class="video-info">
+                        <h4>Art Workshop Highlights</h4>
+                        <p>Creative sessions from ArtFunFest 2024</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> 75K views</span>
+                            <span><i class="fas fa-heart"></i> 1.8K likes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Gallery -->
+    <section class="social-gallery" role="region" aria-label="Social Media Gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-hashtag"></i> Social Media</span>
+                <h2>Join the Conversation</h2>
+                <p>Explore posts and share your own moments with our official hashtags</p>
+            </div>
+            <div class="social-content">
+                <div class="social-hashtags">
+                    <div class="hashtag-item">
+                        <span class="hashtag">#ArtFunFest2025</span>
+                        <span class="count">12.5K posts</span>
+                    </div>
+                    <div class="hashtag-item">
+                        <span class="hashtag">#ArtFunFestVibes</span>
+                        <span class="count">8.3K posts</span>
+                    </div>
+                    <div class="hashtag-item">
+                        <span class="hashtag">#FestivalArt</span>
+                        <span class="count">5.7K posts</span>
+                    </div>
+                </div>
+                <div class="social-feed">
+                    <div class="social-post">
+                        <div class="post-header">
+                            <div class="post-avatar">A</div>
+                            <div class="post-info">
+                                <h5>ArtLover123</h5>
+                                <span>2h ago</span>
+                            </div>
+                        </div>
+                        <div class="post-image">
+                            <img src="asset/art7.jpg" alt="User post from festival" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <p>Amazing time at #ArtFunFest2025! The art was breathtaking!</p>
+                            <div class="post-stats">
+                                <span><i class="fas fa-heart"></i> 245</span>
+                                <span><i class="fas fa-comment"></i> 32</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-post">
+                        <div class="post-header">
+                            <div class="post-avatar">B</div>
+                            <div class="post-info">
+                                <h5>FestivalFan</h5>
+                                <span>5h ago</span>
+                            </div>
+                        </div>
+                        <div class="post-image">
+                            <img src="asset/art8.jpg" alt="User post from festival" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <p>The performances at #ArtFunFestVibes were unreal!</p>
+                            <div class="post-stats">
+                                <span><i class="fas fa-heart"></i> 189</span>
+                                <span><i class="fas fa-comment"></i> 15</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-post">
+                        <div class="post-header">
+                            <div class="post-avatar">C</div>
+                            <div class="post-info">
+                                <h5>CreativeSoul</h5>
+                                <span>1d ago</span>
+                            </div>
+                        </div>
+                        <div class="post-image">
+                            <img src="asset/art10.jpg" alt="User post from festival" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <p>Painting workshop was a highlight! #FestivalArt</p>
+                            <div class="post-stats">
+                                <span><i class="fas fa-heart"></i> 320</span>
+                                <span><i class="fas fa-comment"></i> 45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="index.html" class="footer-logo">
+                        <img src="asset/logo.png" alt="ArtFunFest Logo" class="logo-img" loading="lazy">
+                        <span>ArtFunFest</span>
+                    </a>
+                    <p>The ultimate celebration of art, music, and culture. Join us for an unforgettable experience in the heart of New York City.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-link"></i> Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Festival</a></li>
+                        <li><a href="tickets.html"><i class="fas fa-chevron-right"></i> Buy Tickets</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Photo Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-headset"></i> Support</h4>
+                    <ul>
+                        <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="refund.html"><i class="fas fa-chevron-right"></i> Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-info-circle"></i> Event Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <span class="label">Date</span>
+                                <span class="value">July 16-18, 2025</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Location</span>
+                                <span class="value">Olabisi Onabanjo University, Ago Iwoye</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <span class="value">info@artfunfest.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <span class="value">+234-8057772961</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>© 2025 ArtFunFest. All rights reserved.</p>
+                    <div class="footer-badges">
+                        <span class="badge"><i class="fas fa-shield-alt"></i> Secure Payments</span>
+                        <span class="badge"><i class="fas fa-award"></i> Award Winning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <div class="lightbox-overlay" role="button" aria-label="Close Lightbox"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close Lightbox"><i class="fas fa-times"></i></button>
+            <div class="lightbox-image">
+                <img id="lightbox-img" src="" alt="" loading="lazy">
+            </div>
+            <div class="lightbox-info">
+                <h3 id="lightbox-title">Image Title</h3>
+                <p id="lightbox-description">Image description</p>
+            </div>
+            <div class="lightbox-nav">
+                <button class="lightbox-prev" aria-label="Previous Image"><i class="fas fa-chevron-left"></i></button>
+                <button class="lightbox-next" aria-label="Next Image"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Utility: Debounce function
+            const debounce = (func, wait) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), wait);
+                };
+            };
+
+            // Navigation Menu Toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent click from bubbling to document
+                    const isActive = !navMenu.classList.contains('active');
+                    navMenu.classList.toggle('active', isActive);
+                    navToggle.classList.toggle('active', isActive);
+                    navToggle.setAttribute('aria-expanded', isActive);
+                    navMenu.style.display = isActive ? 'flex' : 'none';
+                    // Focus on first nav link when menu opens
+                    if (isActive) {
+                        navMenu.querySelector('.nav-link').focus();
+                    }
+                });
+
+                // Close menu when clicking a nav link
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            navToggle.classList.remove('active');
+                            navToggle.setAttribute('aria-expanded', 'false');
+                            navMenu.style.display = 'none';
+                            navToggle.focus();
+                        }
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        navMenu.style.display = 'none';
+                    }
+                });
+
+                // Close menu on Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        navMenu.style.display = 'none';
+                        navToggle.focus();
+                    }
+                });
+            }
+
+            // Gallery items array for lightbox navigation
+            let galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+            let currentImageIndex = 0;
+            let currentFilter = 'all';
+            let lastFocusedElement = null;
+
+            // Additional gallery items for dynamic loading
+            const additionalItems = [
+                {
+                    category: 'art',
+                    src: 'asset/art13.jpg',
+                    alt: 'Mixed Media Art',
+                    title: 'Mixed Media Installation',
+                    desc: 'Interactive art piece'
+                },
+                {
+                    category: 'crowd',
+                    src: 'asset/art6.jpg',
+                    alt: 'Festival Sunset',
+                    title: 'Festival at Sunset',
+                    desc: 'Golden hour atmosphere'
+                },
+                {
+                    category: 'workshops',
+                    src: 'asset/art5.jpg',
+                    alt: 'Digital Art Workshop',
+                    title: 'Digital Art Workshop',
+                    desc: 'Technology meets creativity'
+                },
+                {
+                    category: 'performances',
+                    src: 'asset/art8.jpg',
+                    alt: 'Electronic Music',
+                    title: 'Electronic Music Set',
+                    desc: 'Night performance'
+                }
+            ];
+
+            // Gallery Filter with Animation
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const galleryGrid = document.querySelector('#gallery-grid');
+            if (filterTabs && galleryGrid) {
+                filterTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        filterTabs.forEach(t => {
+                            t.classList.remove('active');
+                            t.setAttribute('aria-selected', 'false');
+                        });
+                        tab.classList.add('active');
+                        tab.setAttribute('aria-selected', 'true');
+                        currentFilter = tab.getAttribute('data-filter');
+                        galleryItems.forEach(item => {
+                            const category = item.getAttribute('data-category');
+                            item.classList.toggle('hidden', currentFilter !== 'all' && category !== currentFilter);
+                        });
+                        galleryGrid.style.opacity = '0';
+                        setTimeout(() => {
+                            galleryGrid.style.opacity = '1';
+                        }, 50);
+                    });
+                });
+            }
+
+            // Dynamic Load More
+            const loadMoreBtn = document.querySelector('#load-more-btn');
+            if (loadMoreBtn && galleryGrid) {
+                loadMoreBtn.addEventListener('click', () => {
+                    additionalItems.forEach(item => {
+                        if (currentFilter === 'all' || item.category === currentFilter) {
+                            const galleryItem = document.createElement('div');
+                            galleryItem.classList.add('gallery-item');
+                            galleryItem.setAttribute('data-category', item.category);
+                            galleryItem.innerHTML = `
+                                <img src="${item.src}" alt="${item.alt}" loading="lazy">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h4>${item.title}</h4>
+                                        <p>${item.desc}</p>
+                                    </div>
+                                    <button class="view-btn" aria-label="View ${item.title}"><i class="fas fa-expand"></i></button>
+                                </div>
+                            `;
+                            galleryGrid.appendChild(galleryItem);
+                        }
+                    });
+                    galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+                    loadMoreBtn.style.display = 'none';
+                });
+            }
+
+            // Lightbox Functionality
+            if (galleryGrid) {
+                galleryGrid.addEventListener('click', (e) => {
+                    const viewBtn = e.target.closest('.view-btn');
+                    if (viewBtn) {
+                        lastFocusedElement = viewBtn;
+                        openLightbox(viewBtn);
+                    }
+                });
+            }
+
+            function openLightbox(element) {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                const lightboxTitle = document.getElementById('lightbox-title');
+                const lightboxDesc = document.getElementById('lightbox-description');
+                if (!lightbox || !lightboxImg || !lightboxTitle || !lightboxDesc) return;
+                const img = element.parentElement.querySelector('img');
+                const title = element.parentElement.querySelector('h4').textContent;
+                const desc = element.parentElement.querySelector('p').textContent;
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxTitle.textContent = title;
+                lightboxDesc.textContent = desc;
+                currentImageIndex = galleryItems.findIndex(item =>
+                    item.querySelector('img').src === img.src &&
+                    item.querySelector('h4').textContent === title &&
+                    item.querySelector('p').textContent === desc
+                );
+                lightbox.style.display = 'flex';
+                lightbox.setAttribute('aria-hidden', 'false');
+                setTimeout(() => {
+                    lightbox.classList.add('active');
+                    lightbox.querySelector('.lightbox-close').focus();
+                }, 10);
+                document.body.style.overflow = 'hidden';
+                preloadImages();
+            }
+
+            window.closeLightbox = function () {
+                const lightbox = document.getElementById('lightbox');
+                if (!lightbox) return;
+                lightbox.classList.remove('active');
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    lightbox.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = 'auto';
+                    if (lastFocusedElement) lastFocusedElement.focus();
+                }, 300);
+            };
+
+            window.prevImage = function () {
+                if (currentImageIndex > 0) {
+                    currentImageIndex--;
+                } else {
+                    currentImageIndex = galleryItems.length - 1;
+                }
+                updateLightbox();
+                preloadImages();
+            };
+
+            window.nextImage = function () {
+                if (currentImageIndex < galleryItems.length - 1) {
+                    currentImageIndex++;
+                } else {
+                    currentImageIndex = 0;
+                }
+                updateLightbox();
+                preloadImages();
+            };
+
+            function updateLightbox() {
+                const lightboxImg = document.getElementById('lightbox-img');
+                const lightboxTitle = document.getElementById('lightbox-title');
+                const lightboxDesc = document.getElementById('lightbox-description');
+                const item = galleryItems[currentImageIndex];
+                if (!item) return;
+                lightboxImg.style.opacity = '0';
+                setTimeout(() => {
+                    lightboxImg.src = item.querySelector('img').src;
+                    lightboxImg.alt = item.querySelector('img').alt;
+                    lightboxTitle.textContent = item.querySelector('h4').textContent;
+                    lightboxDesc.textContent = item.querySelector('p').textContent;
+                    lightboxImg.style.opacity = '1';
+                }, 300);
+            }
+
+            function preloadImages() {
+                const prevIndex = currentImageIndex > 0 ? currentImageIndex - 1 : galleryItems.length - 1;
+                const nextIndex = currentImageIndex < galleryItems.length - 1 ? currentImageIndex + 1 : 0;
+                [prevIndex, nextIndex].forEach(index => {
+                    const img = new Image();
+                    img.src = galleryItems[index].querySelector('img').src;
+                });
+            }
+
+            // Video Playback Functionality
+            const videoItems = document.querySelectorAll('.video-item');
+            if (videoItems) {
+                videoItems.forEach(item => {
+                    const video = item.querySelector('.video-player');
+                    const playBtn = item.querySelector('.video-play-btn');
+                    if (!video || !playBtn) return;
+                    playBtn.addEventListener('click', () => {
+                        if (video.paused) {
+                            videoItems.forEach(otherItem => {
+                                const otherVideo = otherItem.querySelector('.video-player');
+                                const otherBtn = otherItem.querySelector('.video-play-btn');
+                                if (otherVideo !== video && !otherVideo.paused) {
+                                    otherVideo.pause();
+                                    otherBtn.classList.remove('playing');
+                                    otherBtn.setAttribute('aria-label', 'Play Video');
+                                }
+                            });
+                            video.play().catch(() => {
+                                console.error('Video playback failed');
+                                video.parentElement.insertAdjacentHTML('afterend', '<p class="error">Failed to play video.</p>');
+                            });
+                            playBtn.classList.add('playing');
+                            playBtn.setAttribute('aria-label', 'Pause Video');
+                        } else {
+                            video.pause();
+                            playBtn.classList.remove('playing');
+                            playBtn.setAttribute('aria-label', 'Play Video');
+                        }
+                    });
+                    video.addEventListener('ended', () => {
+                        playBtn.classList.remove('playing');
+                        playBtn.setAttribute('aria-label', 'Play Video');
+                    });
+                    playBtn.addEventListener('keydown', (e) => {
+                        if (e.key === ' ' || e.key === 'Enter') {
+                            e.preventDefault();
+                            playBtn.click();
+                        }
+                    });
+                });
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            const video = entry.target.querySelector('.video-player');
+                            const playBtn = entry.target.querySelector('.video-play-btn');
+                            if (video && !video.paused) {
+                                video.pause();
+                                playBtn.classList.remove('playing');
+                                playBtn.setAttribute('aria-label', 'Play Video');
+                            }
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                videoItems.forEach(item => observer.observe(item));
+            }
+
+            // Keyboard Navigation for Lightbox
+            document.addEventListener('keydown', (e) => {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox && lightbox.style.display === 'flex') {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                    } else if (e.key === 'ArrowLeft') {
+                        prevImage();
+                    } else if (e.key === 'ArrowRight') {
+                        nextImage();
+                    }
+                }
+            });
+
+            // Touch Swipe for Lightbox
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox) {
+                lightbox.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                lightbox.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    if (touchEndX < touchStartX - 50) {
+                        nextImage();
+                    } else if (touchEndX > touchStartX + 50) {
+                        prevImage();
+                    }
+                });
+            }
+
+            // Back to Top Button
+            const backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                window.addEventListener('scroll', debounce(() => {
+                    backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+                }, 100));
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Error Handling for Image Loads
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.addEventListener('error', () => {
+                    img.src = 'https://via.placeholder.com/400x250?text=Image+Not+Found';
+                    img.alt = 'Image Not Found';
+                });
+            });
+
+            // Error Handling for Video Loads
+            document.querySelectorAll('.video-player').forEach(video => {
+                video.addEventListener('error', () => {
+                    video.parentElement.insertAdjacentHTML('afterend', '<p class="error">Failed to load video.</p>');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

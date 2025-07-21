@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Get in touch with ArtFunFest Afro Fusion 2025 for questions, support, or partnership opportunities at Olabisi Onabanjo University, Ago Iwoye.">
+    <meta name="keywords" content="ArtFunFest Afro Fusion, contact, African art festival, OOU Ibogun, partnership">
+    <title>Contact - ArtFunFest </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+   <link rel="icon"  href="asset/logo.png">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #A32638; /* Deep red for Afrocentric vibe */
+            --secondary-color: #FFFFFF;
+            --accent-color: #E67E22; /* Ochre for African heritage */
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #A32638, #E67E22);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --footer-bg: #4b5563; /* Grey footer */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--secondary-color);
+            font-size: clamp(16px, 2vw, 18px);
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Container */
+        .container {
+            max-width: min(95%, 1280px);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: clamp(40px, 5vw, 50px);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: clamp(0.875rem, 2vw, 0.9375rem);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            background: rgba(163, 38, 56, 0.1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-tickets {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: clamp(0.875rem, 2vw, 0.9375rem);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-tickets:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Page Header */
+        .page-header {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            margin-top: 0;
+            overflow: hidden;
+        }
+
+        .page-header-background {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+        }
+
+        .page-header-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .page-header:hover .page-header-background img {
+            transform: scale(1.05);
+        }
+
+        .page-header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(163, 38, 56, 0.8), rgba(230, 126, 34, 0.8));
+            z-index: -1;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-header-content {
+            text-align: center;
+            color: var(--secondary-color);
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem 1rem;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: clamp(0.875rem, 2vw, 0.9375rem);
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+        }
+
+        .page-header h1 {
+            font-size: clamp(1.75rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-header p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 400;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: clamp(0.875rem, 2vw, 0.9375rem);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            touch-action: manipulation;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 3rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(163, 38, 56, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .section-header p {
+            font-size: clamp(0.9375rem, 2vw, 1.125rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Info Section */
+        .contact-info-section {
+            background: #FFF8E7; /* Light ochre background */
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-details a,
+        .contact-details span {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: var(--transition);
+        }
+
+        .contact-details a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-hours {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .contact-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .chat-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chat-button:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            background: var(--secondary-color);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-form-container {
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(163, 38, 56, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .checkbox-label input {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary-color);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .form-error,
+        .form-success {
+            display: none;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-top: 1rem;
+            font-size: 0.9375rem;
+        }
+
+        .form-error {
+            background: rgba(255, 0, 0, 0.1);
+            color: #d63031;
+            border: 1px solid #d63031;
+        }
+
+        .form-success {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            border: 1px solid #28a745;
+        }
+
+        .contact-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-card {
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-card h3 {
+            font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .partnership-types {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .partnership-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        .press-resources {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .press-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .press-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Office Hours */
+        .office-hours {
+            background: #FFF8E7;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .hours-card {
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .hours-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hours-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hours-card h3 {
+            font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hours-schedule {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        .current-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .current-status.open i {
+            color: #28a745;
+        }
+
+        /* Social Media */
+        .social-contact {
+            background: var(--secondary-color);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .social-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .social-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .social-info h3 {
+            font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .social-info p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .follower-count {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .social-arrow {
+            font-size: 1.25rem;
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--footer-bg);
+            color: var(--secondary-color);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+            font-weight: 800;
+        }
+
+        .footer-logo img {
+            width: clamp(36px, 5vw, 48px);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .footer-section p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 0.9375rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.625rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .contact-item i {
+            width: 18px;
+            color: var(--accent-color);
+        }
+
+        .contact-item .label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .contact-item .value {
+            font-weight: 500;
+            color: var(--secondary-color);
+            font-size: 0.9375rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: 0.75rem;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 48px;
+            height: 48px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.125rem;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 1921px) {
+            .container {
+                max-width: 1600px;
+            }
+            .contact-content {
+                grid-template-columns: 3fr 1fr;
+            }
+            .hours-grid,
+            .social-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            .nav-actions {
+                gap: 0.5rem;
+            }
+            .btn-tickets {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            .hours-grid,
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--secondary-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 999;
+                padding: 2rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                font-size: 1.125rem;
+                padding: 0.75rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .page-header {
+                min-height: 40vh;
+            }
+
+            .page-header h1 {
+                font-size: clamp(1.5rem, 4vw, 2.25rem);
+            }
+
+            .page-header p {
+                font-size: clamp(0.875rem, 2vw, 1rem);
+            }
+
+            .contact-info-grid,
+            .hours-grid,
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-container {
+                padding: 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-logo {
+                font-size: clamp(1rem, 2.5vw, 1.25rem);
+            }
+
+            .logo-img {
+                width: clamp(32px, 4vw, 40px);
+            }
+
+            .btn-tickets {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.875rem;
+            }
+
+            .page-header h1 {
+                font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+            }
+
+            .section-header h2 {
+                font-size: clamp(1.5rem, 3.5vw, 2rem);
+            }
+
+            .contact-card h3,
+            .hours-card h3,
+            .social-info h3 {
+                font-size: 1rem;
+            }
+
+            .contact-details,
+            .hours-schedule,
+            .social-info p,
+            .follower-count {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation">
+            <div class="container">
+                <div class="nav-container">
+                    <a href="index.html" class="nav-logo" aria-label="ArtFunFest Afro Fusion Home">
+                        <img src="asset/logo.png" alt="ArtFunFest Afro Fusion Logo" class="logo-img" loading="lazy">
+                        <span>ArtFunFest</span>
+                    </a>
+                    <ul class="nav-menu" id="nav-menu" aria-label="Main navigation">
+                        <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li class="nav-item"><a href="lineup.html" class="nav-link"><i class="fas fa-users"></i> Lineup</a></li>
+                        <li class="nav-item"><a href="tickets.html" class="nav-link"><i class="fas fa-ticket-alt"></i> Tickets</a></li>
+                        <li class="nav-item"><a href="venue.html" class="nav-link"><i class="fas fa-map-marker-alt"></i> Venue</a></li>
+                        <li class="nav-item"><a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link active" aria-current="page"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <button class="btn-tickets" aria-label="Get Tickets" onclick="window.location.href='tickets.html'">
+                            <i class="fas fa-ticket-alt"></i> Get Tickets
+                        </button>
+                        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" role="region" aria-label="Contact Header">
+        <div class="page-header-background">
+            <img src="https://images.pexels.com/photos/1181490/pexels-photo-1181490.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="African Cultural Contact Background" loading="lazy">
+            <div class="page-header-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="page-header-content">
+                <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Contact</span>
+                </nav>
+                <h1><i class="fas fa-envelope"></i> Get in Touch</h1>
+                <p>Contact ArtFunFest Afro Fusion 2025 for support or partnerships</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-info-section" role="region" aria-label="Contact Information">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-info-circle"></i> Contact Us</span>
+                <h2>Reach Out to Us</h2>
+                <p>Connect with our team for inquiries, support, or partnership opportunities</p>
+            </div>
+            <div class="contact-info-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <div class="contact-details">
+                        <a href="mailto:Artfunfestng@gmail.com">Artfunfestng@gmail.com</a>
+                        <a href="mailto:tickets@artfunfestng.com">tickets@artfunfestng.com</a>
+                        <a href="mailto:press@artfunfestng.com">press@artfunfestng.com</a>
+                    </div>
+                    <p>We respond within 24 hours</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <div class="contact-details">
+                        <a href="tel:+2348057772961">+234-8057772961</a>
+                        <span class="contact-hours">Mon-Fri: 9AM-6PM WAT</span>
+                        <span class="contact-hours">Sat: 10AM-4PM WAT</span>
+                    </div>
+                    <p>Speak with our support team</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Us</h3>
+                    <div class="contact-details">
+                        <span>Olabisi Onabanjo University</span>
+                        <span>Ago Iwoye, Ogun State</span>
+                        <span>Nigeria</span>
+                    </div>
+                    <p>Office open by appointment</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <div class="contact-details">
+                        <button class="chat-button" onclick="alert('Live chat is currently unavailable. Please email us at Artfunfestng@gmail.com.')">
+                            <i class="fas fa-comment-dots"></i> Start Chat
+                        </button>
+                        <span class="contact-hours">Available 24/7</span>
+                    </div>
+                    <p>Get instant support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section" role="region" aria-label="Contact Form">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <div class="section-header">
+                        <span class="section-badge"><i class="fas fa-paper-plane"></i> Message</span>
+                        <h2>Send Us a Message</h2>
+                        <p>Fill out the form below, and we’ll get back to you promptly</p>
+                    </div>
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name"><i class="fas fa-user"></i> First Name</label>
+                                <input type="text" id="first-name" name="firstName" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name"><i class="fas fa-user"></i> Last Name</label>
+                                <input type="text" id="last-name" name="lastName" required aria-required="true">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                                <input type="email" id="email" name="email" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject"><i class="fas fa-tag"></i> Subject</label>
+                            <select id="subject" name="subject" required aria-required="true">
+                                <option value="">Select a subject</option>
+                                <option value="tickets">Ticket Information</option>
+                                <option value="artists">Artist Inquiries</option>
+                                <option value="venue">Venue Questions</option>
+                                <option value="partnerships">Partnership Opportunities</option>
+                                <option value="press">Press & Media</option>
+                                <option value="accessibility">Accessibility</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> Message</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you..." required aria-required="true"></textarea>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkmark"></span>
+                                Subscribe to our newsletter
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        </div>
+                        <div class="form-error" id="form-error"></div>
+                        <div class="form-success" id="form-success"></div>
+                    </form>
+                </div>
+                <div class="contact-sidebar">
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <h4>When do tickets go on sale?</h4>
+                                <p>Tickets are available now with early bird pricing until April 1st, 2025.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Is the festival rain or shine?</h4>
+                                <p>Yes, the festival continues in light rain. Severe weather may cause delays.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Are there age restrictions?</h4>
+                                <p>The festival is family-friendly and welcomes all ages.</p>
+                            </div>
+                        </div>
+                        <a href="faq.html" class="btn btn-secondary"><i class="fas fa-list"></i> View All FAQs</a>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-handshake"></i> Partnership Opportunities</h3>
+                        <p>Join us as a sponsor or collaborator to engage with our vibrant community.</p>
+                        <div class="partnership-types">
+                            <div class="partnership-item">
+                                <i class="fas fa-building"></i>
+                                <span>Corporate Sponsorship</span>
+                            </div>
+                            <div class="partnership-item">
+                                <i class="fas fa-palette"></i>
+                                <span>Artist Collaborations</span>
+                            </div>
+                            <div class="partnership-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>Food & Beverage Partners</span>
+                            </div>
+                        </div>
+                        <a href="mailto:partnerships@artfunfestng.com" class="btn btn-secondary"><i class="fas fa-envelope"></i> Partnership Inquiry</a>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-newspaper"></i> Press & Media</h3>
+                        <p>Access press kits, images, and schedule interviews with our team.</p>
+                        <div class="press-resources">
+                            <a href="#" class="press-link"><i class="fas fa-download"></i> Press Kit</a>
+                            <a href="gallery.html" class="press-link"><i class="fas fa-images"></i> Media Gallery</a>
+                            <a href="mailto:press@artfunfestng.com" class="press-link"><i class="fas fa-calendar"></i> Interview Requests</a>
+                        </div>
+                        <a href="mailto:press@artfunfestng.com" class="btn btn-secondary"><i class="fas fa-microphone"></i> Media Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Hours -->
+    <section class="office-hours" role="region" aria-label="Office Hours">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-clock"></i> Hours</span>
+                <h2>Office Hours</h2>
+                <p>Reach us for immediate assistance during these times</p>
+            </div>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Customer Support</h3>
+                    <div class="hours-schedule">
+                        <div class="schedule-item">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">9:00 AM - 6:00 PM WAT</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="day">Saturday</span>
+                            <span class="time">10:00 AM - 4:00 PM WAT</span>
+                        </div>
+                    </div>
+                    <div class="current-status open">
+                        <i class="fas fa-circle"></i>
+                        <span>Currently Open</span>
+                    </div>
+                </div>
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3>Ticket Sales</h3>
+                    <div class="hours-schedule">
+                        <div class="schedule-item">
+                            <span class="day">Every Day</span>
+                            <span class="time">24/7 Online</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="day">Phone Sales</span>
+                            <span class="time">9:00 AM - 6:00 PM WAT</span>
+                        </div>
+                    </div>
+                    <div class="current-status open">
+                        <i class="fas fa-circle"></i>
+                        <span>Always Available</span>
+                    </div>
+                </div>
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Office Visits</h3>
+                    <div class="hours-schedule">
+                        <div class="schedule-item">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">By Appointment Only</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="day">Weekends</span>
+                            <span class="time">By Appointment Only</span>
+                        </div>
+                    </div>
+                    <div class="current-status">
+                        <i class="fas fa-circle"></i>
+                        <span>By Appointment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media -->
+    <section class="social-contact" role="region" aria-label="Social Media">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-share-alt"></i> Social</span>
+                <h2>Follow Us</h2>
+                <p>Stay connected for the latest updates and highlights</p>
+            </div>
+            <div class="social-grid">
+                <a href="https://www.facebook.com/artfunfest" class="social-card facebook">
+                    <div class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>Facebook</h3>
+                        <p>Community discussions and updates</p>
+                        <span class="follower-count">125K followers</span>
+                    </div>
+                    <div class="social-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/artfunfest/?igsh=MWltcjNucTE0dGR1bA%3D%3D&utm_source=qr" class="social-card instagram">
+                    <div class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>Instagram</h3>
+                        <p>Behind-the-scenes photos</p>
+                        <span class="follower-count">89K followers</span>
+                    </div>
+                    <div class="social-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                <a href="https://x.com/artfunfest" class="social-card twitter">
+                    <div class="social-icon">
+                        <i class="fab fa-x-twitter"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>X</h3>
+                        <p>Real-time announcements</p>
+                        <span class="follower-count">67K followers</span>
+                    </div>
+                    <div class="social-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/@artfunfest" class="social-card youtube">
+                    <div class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>YouTube</h3>
+                        <p>Festival highlights and interviews</p>
+                        <span class="follower-count">45K subscribers</span>
+                    </div>
+                    <div class="social-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                <a href="https://www.tiktok.com/@artfunfest" class="social-card tiktok">
+                    <div class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>TikTok</h3>
+                        <p>Fun content and artist spotlights</p>
+                        <span class="follower-count">156K followers</span>
+                    </div>
+                    <div class="social-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/company/artfunfest" class="social-card linkedin">
+                    <div class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>LinkedIn</h3>
+                        <p>Professional updates and partnerships</p>
+                        <span class="follower-count">23K followers</span>
+                    </div>
+                    <div class="social-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="asset/logo.png" alt="ArtFunFest Afro Fusion Logo" class="logo-img" loading="lazy">
+                        <span>ArtFunFest Afro Fusion</span>
+                    </div>
+                    <p>The ultimate celebration of African art, music, and culture at Olabisi Onabanjo University, Ago Iwoye.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/artfunfest" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/artfunfest" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/artfunfest/?igsh=MWltcjNucTE0dGR1bA%3D%3D&utm_source=qr" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@artfunfest" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@artfunfest" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-link"></i> Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Festival</a></li>
+                        <li><a href="lineup.html"><i class="fas fa-chevron-right"></i> Artist Lineup</a></li>
+                        <li><a href="tickets.html"><i class="fas fa-chevron-right"></i> Buy Tickets</a></li>
+                        <li><a href="venue.html"><i class="fas fa-chevron-right"></i> Venue Info</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Photo Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-headset"></i> Support</h4>
+                    <ul>
+                        <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="refund.html"><i class="fas fa-chevron-right"></i> Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-info-circle"></i> Event Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <span class="label">Date</span>
+                                <span class="value">July 2025</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Location</span>
+                                <span class="value">Olabisi Onabanjo University, Ago Iwoye</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <span class="value">Artfunfestng@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <span class="value">+234-8057772961</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>© 2025 ArtFunFest Afro Fusion. All rights reserved.</p>
+                    <div class="footer-badges">
+                        <span class="badge"><i class="fas fa-shield-alt"></i> Secure Payments</span>
+                        <span class="badge"><i class="fas fa-award"></i> Award Winning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Utility: Debounce function
+            const debounce = (func, wait) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), wait);
+                };
+            };
+
+            // Navigation Menu Toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isActive = !navMenu.classList.contains('active');
+                    navMenu.classList.toggle('active', isActive);
+                    navToggle.classList.toggle('active', isActive);
+                    navToggle.setAttribute('aria-expanded', isActive);
+                    navMenu.style.display = isActive ? 'flex' : 'none';
+                    if (isActive) {
+                        navMenu.querySelector('.nav-link').focus();
+                    }
+                });
+
+                // Close menu when clicking a nav link
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            navToggle.classList.remove('active');
+                            navToggle.setAttribute('aria-expanded', 'false');
+                            navMenu.style.display = 'none';
+                            navToggle.focus();
+                        }
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        navMenu.style.display = 'none';
+                    }
+                });
+
+                // Close menu on Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        navMenu.style.display = 'none';
+                        navToggle.focus();
+                    }
+                });
+            }
+
+            // Contact Form Validation
+            const contactForm = document.getElementById('contact-form');
+            const formError = document.getElementById('form-error');
+            const formSuccess = document.getElementById('form-success');
+            if (contactForm && formError && formSuccess) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    formError.style.display = 'none';
+                    formSuccess.style.display = 'none';
+
+                    const firstName = document.getElementById('first-name').value.trim();
+                    const lastName = document.getElementById('last-name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value.trim();
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    if (!firstName || !lastName || !email || !subject || !message) {
+                        formError.textContent = 'Please fill in all required fields.';
+                        formError.style.display = 'block';
+                        return;
+                    }
+
+                    if (!emailRegex.test(email)) {
+                        formError.textContent = 'Please enter a valid email address.';
+                        formError.style.display = 'block';
+                        return;
+                    }
+
+                    if (phone && !/^\+?[\d\s-]{7,15}$/.test(phone)) {
+                        formError.textContent = 'Please enter a valid phone number.';
+                        formError.style.display = 'block';
+                        return;
+                    }
+
+                    // Simulate form submission
+                    formSuccess.textContent = 'Thank you for your message! We’ll get back to you within 24 hours.';
+                    formSuccess.style.display = 'block';
+                    contactForm.reset();
+                });
+            }
+
+            // Back to Top Button
+            const backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                window.addEventListener('scroll', debounce(() => {
+                    backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+                }, 100));
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Error Handling for Images
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('error', () => {
+                    img.src = 'https://via.placeholder.com/150?text=Image+Not+Found';
+                    img.alt = 'Image Not Found';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
